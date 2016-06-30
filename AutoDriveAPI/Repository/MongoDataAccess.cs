@@ -12,7 +12,7 @@ namespace AutoDriveAPI.Repository
     {
         public IMongoDatabase GetMongoDB()
         {
-            var _client = new MongoClient(ConfigurationManager.AppSettings["MongoConnection"].ToString());// "mongodb://localhost:27017");
+            var _client = new MongoClient(ConfigurationManager.AppSettings["MongoConnection"].ToString()); // "mongodb://localhost:27017");
             var MongoDB = _client.GetDatabase(ConfigurationManager.AppSettings["MongoDB"].ToString());
             return MongoDB;
         }
