@@ -1,4 +1,4 @@
-﻿using AutoDriveAPI.Repository.Interfaces;
+﻿using AutoDriveDataModel.Repository.Interfaces;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 
-namespace AutoDriveAPI.Repository
+namespace AutoDriveDataModel.Repository
 {
     public class MongoDataAccess : IMongoDataAccess
     {

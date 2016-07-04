@@ -145,12 +145,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Ioc\IocContainer.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\Interfaces\IMongoDataAccess.cs" />
-    <Compile Include="Repository\Interfaces\IMongoRepository.cs" />
-    <Compile Include="Repository\MongoDataAccess.cs" />
-    <Compile Include="Repository\MongoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -166,6 +161,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoDriveDataModel\AutoDriveDataModel.csproj">
+      <Project>{90e81e13-19f4-412b-a369-72e65ee32775}</Project>
+      <Name>AutoDriveDataModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

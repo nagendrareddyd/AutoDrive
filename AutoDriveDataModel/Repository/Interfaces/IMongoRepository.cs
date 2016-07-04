@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoDriveAPI.Repository.Interfaces
+namespace AutoDriveDataModel.Repository.Interfaces
 {
-    interface IMongoRepository<T>
+    public interface IMongoRepository<T>
     {
         IQueryable<T> FindAll(string collectionName);
     }

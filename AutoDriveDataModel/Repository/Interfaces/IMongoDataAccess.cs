@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AutoDriveAPI.Repository.Interfaces
+namespace AutoDriveDataModel.Repository.Interfaces
 {
     public interface IMongoDataAccess
     {

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDriveAPI", "AutoDriveAP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDriveAPI.Tests", "AutoDriveAPI.Tests\AutoDriveAPI.Tests.csproj", "{C1707C4A-19B3-4E88-922A-400493F8D6C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDriveDataModel", "AutoDriveDataModel\AutoDriveDataModel.csproj", "{90E81E13-19F4-412B-A369-72E65EE32775}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDriveIoc", "AutoDriveIoc\AutoDriveIoc.csproj", "{FE22DFDC-DBF8-4EA6-B675-62A7A11F1905}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{C1707C4A-19B3-4E88-922A-400493F8D6C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1707C4A-19B3-4E88-922A-400493F8D6C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1707C4A-19B3-4E88-922A-400493F8D6C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90E81E13-19F4-412B-A369-72E65EE32775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90E81E13-19F4-412B-A369-72E65EE32775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90E81E13-19F4-412B-A369-72E65EE32775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90E81E13-19F4-412B-A369-72E65EE32775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE22DFDC-DBF8-4EA6-B675-62A7A11F1905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE22DFDC-DBF8-4EA6-B675-62A7A11F1905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE22DFDC-DBF8-4EA6-B675-62A7A11F1905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE22DFDC-DBF8-4EA6-B675-62A7A11F1905}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

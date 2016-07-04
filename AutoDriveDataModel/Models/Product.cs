@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AutoDriveAPI.Models
+namespace AutoDriveDataModel.Models
 {
     public class Product
     {

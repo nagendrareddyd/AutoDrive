@@ -1,6 +1,6 @@
 ﻿using AutoDriveAPI.Ioc;
-using AutoDriveAPI.Models;
-using AutoDriveAPI.Repository.Interfaces;
+using AutoDriveDataModel.Models;
+using AutoDriveDataModel.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +15,10 @@ namespace AutoDriveAPI.Controllers
         private IMongoRepository<Product> MongoRepositoryObj = IocContainer.Resolve<IMongoRepository<Product>>();
         
         // GET: api/Products
-        public IEnumerable<Product> Get()
+        public HttpResponseMessage Get()
         {
             var data = MongoRepositoryObj.FindAll("Products");
-            return data;
+            return Request.CreateResponse(data);
         }
 
         // GET: api/Products/5
