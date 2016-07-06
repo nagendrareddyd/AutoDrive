@@ -6,10 +6,9 @@ using System.Linq;
 using System.Web;
 
 namespace AutoDriveDataModel.Models
-{
-    public class Product
-    {
-        public ObjectId Id { get; set; }
+{    
+    public class Product : BaseModel
+    {        
         [BsonElement("ProductId")]
         public int ProductId { get; set; }
         [BsonElement("ProductName")]

@@ -40,6 +40,10 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="nunit.framework, Version=3.4.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -75,6 +79,18 @@
     <ProjectReference Include="..\AutoDriveAPI\AutoDriveAPI.csproj">
       <Project>{5B7EC6F1-8A4A-4E90-B212-7B31AF245262}</Project>
       <Name>AutoDriveAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoDriveEntities\AutoDriveEntities.csproj">
+      <Project>{99b7abb9-d3f1-4e4a-b09a-69cdad839d5f}</Project>
+      <Name>AutoDriveEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoDriveIoc\AutoDriveIoc.csproj">
+      <Project>{fe22dfdc-dbf8-4ea6-b675-62a7a11f1905}</Project>
+      <Name>AutoDriveIoc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoDriveServices\AutoDriveServices.csproj">
+      <Project>{ab0a7f72-f27b-4dcd-b3ba-48ec89a83c71}</Project>
+      <Name>AutoDriveServices</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

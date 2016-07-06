@@ -1,4 +1,5 @@
-﻿using AutoDriveDataModel.Repository.Interfaces;
+﻿using AutoDriveDataModel.Models;
+using AutoDriveDataModel.Repository.Interfaces;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,10 @@ using System.Web;
 
 namespace AutoDriveDataModel.Repository
 {
-    public class MongoRepository<T> : IMongoRepository<T>
+    public class MongoRepository<T> : IMongoRepository<T> where T : BaseModel
     {
+        public string CollectionName { get; set; }
+
         protected IMongoCollection<T> _collection;
         private IMongoDataAccess MongoDataAccessObj { get; }
         private IMongoDatabase MongoDB { get; }
@@ -20,9 +23,9 @@ namespace AutoDriveDataModel.Repository
             MongoDB = MongoDataAccessObj.GetMongoDB();
         }
 
-        public IQueryable<T> FindAll(string collectionName)
-        {
-            return MongoDB.GetCollection<T>(collectionName).AsQueryable();
+        public IQueryable<T> FindAll() 
+        {            
+            return MongoDB.GetCollection<T>(CollectionName).AsQueryable();
         }
 
         public async Task<IList<T>> Find(Expression<Func<T, bool>> query)

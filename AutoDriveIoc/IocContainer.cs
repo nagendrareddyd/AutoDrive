@@ -9,12 +9,11 @@ namespace AutoDriveIoc
 {
     public class IocContainer
     {
-        private static IWindsorContainer container;
+        public static IWindsorContainer container;
         public static void Init()
         {
-            container = new WindsorContainer();
-            //container.Register(Component.For<IMongoDataAccess>().ImplementedBy<MongoDataAccess>());
-            //container.Register(Component.For(typeof(IMongoRepository<>)).ImplementedBy(typeof(MongoRepository<>)));
+            if(container == null)
+                container = new WindsorContainer();            
         }
 
         public static T Resolve<T>()

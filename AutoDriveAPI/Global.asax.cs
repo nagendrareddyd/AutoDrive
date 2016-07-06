@@ -1,4 +1,4 @@
-﻿using AutoDriveAPI.Ioc;
+﻿using AutoDriveServices.IoCRegistry;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace AutoDriveAPI
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            IocContainer.Init();
+            ServicesIoCRegistry.Init();
         }
     }
 }

@@ -12,13 +12,16 @@ namespace AutoDriveDataModel.UnitOfWork
     public class UnitOfWork : IDisposable
     {
         private IMongoRepository<Product> _productRepository;
-
+        
         public IMongoRepository<Product> GetProductRepository
         {
             get
             {
                 if (_productRepository == null)
-                    _productRepository = new MongoRepository<Product>();
+                {
+                    _productRepository = AutoDriveIoc.IocContainer.Resolve<IMongoRepository<Product>>();
+                    _productRepository.CollectionName = "Products";
+                }
                 return _productRepository;
             }
         }

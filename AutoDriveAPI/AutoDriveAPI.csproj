@@ -144,7 +144,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Ioc\IocContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,9 +162,17 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AutoDriveDataModel\AutoDriveDataModel.csproj">
-      <Project>{90e81e13-19f4-412b-a369-72e65ee32775}</Project>
-      <Name>AutoDriveDataModel</Name>
+    <ProjectReference Include="..\AutoDriveEntities\AutoDriveEntities.csproj">
+      <Project>{99b7abb9-d3f1-4e4a-b09a-69cdad839d5f}</Project>
+      <Name>AutoDriveEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoDriveIoc\AutoDriveIoc.csproj">
+      <Project>{fe22dfdc-dbf8-4ea6-b675-62a7a11f1905}</Project>
+      <Name>AutoDriveIoc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoDriveServices\AutoDriveServices.csproj">
+      <Project>{ab0a7f72-f27b-4dcd-b3ba-48ec89a83c71}</Project>
+      <Name>AutoDriveServices</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

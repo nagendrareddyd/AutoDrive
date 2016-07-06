@@ -3,17 +3,18 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AutoDriveAPI.Controllers;
 using System.Web.Http;
 using System.Net.Http;
-
-using AutoDriveAPI.Ioc;
+using NUnit.Framework;
+using AutoDriveServices.IoCRegistry;
 
 namespace AutoDriveAPI.Tests
 {
     [TestClass]
     public class ProductTest
     {
-        public ProductTest()
+        [OneTimeSetUp]
+        public void Setup()
         {
-            IocContainer.Init();
+            ServicesIoCRegistry.Init();
         }
         
         [TestMethod]
