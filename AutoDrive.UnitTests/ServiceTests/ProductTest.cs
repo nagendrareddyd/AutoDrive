@@ -13,10 +13,11 @@ using System.Linq;
 using AutoDriveEntities;
 using AutoDrive.UnitTests.Helper;
 using AutoDrive.UnitTests.TestData;
+using AutoDriveServices;
 
 namespace AutoDrive.UnitTests.Tests
 {    
-	
+	[TestFixture]
     public class ProductTest
     {
 		#region private variables
@@ -28,8 +29,8 @@ namespace AutoDrive.UnitTests.Tests
 
 		[OneTimeSetUp]
         public void Setup()
-        {
-            ServicesIoCRegistry.Init();
+        {            
+			AutoMapperSetup.Init();
 			_products = SetUpProducts();
         }
         
@@ -88,7 +89,7 @@ namespace AutoDrive.UnitTests.Tests
 		private IMongoRepository<Product> SetUpProductRepository()
 		{
 			var mockRepo = new Mock<IMongoRepository<Product>>(MockBehavior.Default);
-			mockRepo.Setup(p => p.FindAll()).Returns((IQueryable<Product>)_products);
+			mockRepo.Setup(p => p.FindAll()).Returns(_products.AsQueryable());
 			return mockRepo.Object;
 		}
 		private static List<Product> SetUpProducts()
