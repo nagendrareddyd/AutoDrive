@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDriveAPI", "AutoDriveAPI\AutoDriveAPI.csproj", "{5B7EC6F1-8A4A-4E90-B212-7B31AF245262}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDriveAPI.Tests", "AutoDriveAPI.Tests\AutoDriveAPI.Tests.csproj", "{C1707C4A-19B3-4E88-922A-400493F8D6C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDriveDataModel", "AutoDriveDataModel\AutoDriveDataModel.csproj", "{90E81E13-19F4-412B-A369-72E65EE32775}"
 EndProject
@@ -14,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDriveServices", "AutoDriveServices\AutoDriveServices.csproj", "{AB0A7F72-F27B-4DCD-B3BA-48EC89A83C71}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDriveEntities", "AutoDriveEntities\AutoDriveEntities.csproj", "{99B7ABB9-D3F1-4E4A-B09A-69CDAD839D5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDrive.UnitTests", "AutoDrive.UnitTests\AutoDrive.UnitTests.csproj", "{782E2B63-2035-4F1C-808A-E2076F2FDD33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		{5B7EC6F1-8A4A-4E90-B212-7B31AF245262}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B7EC6F1-8A4A-4E90-B212-7B31AF245262}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B7EC6F1-8A4A-4E90-B212-7B31AF245262}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1707C4A-19B3-4E88-922A-400493F8D6C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1707C4A-19B3-4E88-922A-400493F8D6C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1707C4A-19B3-4E88-922A-400493F8D6C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1707C4A-19B3-4E88-922A-400493F8D6C0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{90E81E13-19F4-412B-A369-72E65EE32775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{90E81E13-19F4-412B-A369-72E65EE32775}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90E81E13-19F4-412B-A369-72E65EE32775}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{99B7ABB9-D3F1-4E4A-B09A-69CDAD839D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99B7ABB9-D3F1-4E4A-B09A-69CDAD839D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99B7ABB9-D3F1-4E4A-B09A-69CDAD839D5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{782E2B63-2035-4F1C-808A-E2076F2FDD33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{782E2B63-2035-4F1C-808A-E2076F2FDD33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{782E2B63-2035-4F1C-808A-E2076F2FDD33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{782E2B63-2035-4F1C-808A-E2076F2FDD33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

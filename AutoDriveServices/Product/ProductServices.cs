@@ -12,12 +12,12 @@ namespace AutoDriveServices.Product
 {
     public class ProductServices : IProductServices
     {
-        private UnitOfWork _unitOfWork { get; }
+        private IUnitOfWork _unitOfWork { get; }
 
         /// <summary>
         /// Public constructor.
         /// </summary>
-        public ProductServices(UnitOfWork unitOfWork)
+        public ProductServices(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }

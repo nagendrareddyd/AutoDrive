@@ -70,6 +70,7 @@
     <Compile Include="Repository\Interfaces\IMongoRepository.cs" />
     <Compile Include="Repository\MongoDataAccess.cs" />
     <Compile Include="Repository\MongoRepository.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
