@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AutoDriveDataModel.UnitOfWork
 {
-    public class UnitOfWork : IDisposable
+    public class UnitOfWork : IDisposable,IUnitOfWork
     {
         private IMongoRepository<Product> _productRepository;
         

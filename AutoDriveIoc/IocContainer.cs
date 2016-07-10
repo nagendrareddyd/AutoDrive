@@ -12,8 +12,8 @@ namespace AutoDriveIoc
         public static IWindsorContainer container;
         public static void Init()
         {
-            if(container == null)
-                container = new WindsorContainer();            
+            /*if(container == null)
+                container = new WindsorContainer();            */
         }
 
         public static T Resolve<T>()

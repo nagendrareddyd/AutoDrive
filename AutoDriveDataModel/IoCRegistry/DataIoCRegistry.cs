@@ -1,5 +1,6 @@
 ﻿using AutoDriveDataModel.Repository;
 using AutoDriveDataModel.Repository.Interfaces;
+using AutoDriveDataModel.UnitOfWork;
 using AutoDriveIoc;
 using Castle.MicroKernel.Registration;
 using System;
@@ -12,10 +13,11 @@ namespace AutoDriveDataModel.IoCRegistry
 {
     public class DataIoCRegistry
     {
-        public DataIoCRegistry()
+        static DataIoCRegistry()
         {
             IocContainer.container.Register(Component.For<IMongoDataAccess>().ImplementedBy<MongoDataAccess>());            
             IocContainer.container.Register(Component.For(typeof(IMongoRepository<>)).ImplementedBy(typeof(MongoRepository<>)));
+            IocContainer.container.Register(Component.For<IUnitOfWork>().ImplementedBy<UnitOfWork.UnitOfWork>());
         }
 
         public static void Init() { }

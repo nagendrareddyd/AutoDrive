@@ -12,13 +12,13 @@ namespace AutoDriveServices.IoCRegistry
 {
     public class ServicesIoCRegistry
     {
-        public ServicesIoCRegistry()
+        static ServicesIoCRegistry()
         {
-           IocContainer.container.Register(Component.For<IProductServices>().ImplementedBy<ProductServices>());
+            AutoDriveDataModel.IoCRegistry.DataIoCRegistry.Init();
         }
 
-        public static void Init() {
-            AutoDriveDataModel.IoCRegistry.DataIoCRegistry.Init();
+        public static void Init() {            
+            IocContainer.container.Register(Component.For<IProductServices>().ImplementedBy<ProductServices>());
         }
     }
 }

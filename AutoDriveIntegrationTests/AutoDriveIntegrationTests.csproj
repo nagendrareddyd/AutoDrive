@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{782E2B63-2035-4F1C-808A-E2076F2FDD33}</ProjectGuid>
+    <ProjectGuid>{CF841FAE-7423-465D-9206-D40891B40323}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutoDrive.UnitTests</RootNamespace>
-    <AssemblyName>AutoDrive.UnitTests</AssemblyName>
+    <RootNamespace>AutoDriveIntegrationTests</RootNamespace>
+    <AssemblyName>AutoDriveIntegrationTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit3TestAdapter.3.4.0\lib\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
@@ -49,10 +45,6 @@
     <Reference Include="Mono.Cecil.Rocks, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit3TestAdapter.3.4.0\lib\Mono.Cecil.Rocks.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="Moq, Version=4.5.10.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
-      <HintPath>..\packages\Moq.4.5.10\lib\net45\Moq.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -76,7 +68,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,41 +76,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="ControllerTests\ProductControllerTest.cs" />
-    <Compile Include="Helper\ObjectComparer.cs" />
-    <Compile Include="Helper\ProductComparer.cs" />
+    <Compile Include="ProductTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceTests\ProductTest.cs" />
-    <Compile Include="TestData\DataInitializer.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoDriveAPI\AutoDriveAPI.csproj">
       <Project>{5b7ec6f1-8a4a-4e90-b212-7b31af245262}</Project>
       <Name>AutoDriveAPI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AutoDriveDataModel\AutoDriveDataModel.csproj">
-      <Project>{90e81e13-19f4-412b-a369-72e65ee32775}</Project>
-      <Name>AutoDriveDataModel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AutoDriveEntities\AutoDriveEntities.csproj">
       <Project>{99b7abb9-d3f1-4e4a-b09a-69cdad839d5f}</Project>
       <Name>AutoDriveEntities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AutoDriveIoc\AutoDriveIoc.csproj">
-      <Project>{fe22dfdc-dbf8-4ea6-b675-62a7a11f1905}</Project>
-      <Name>AutoDriveIoc</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AutoDriveServices\AutoDriveServices.csproj">
-      <Project>{ab0a7f72-f27b-4dcd-b3ba-48ec89a83c71}</Project>
-      <Name>AutoDriveServices</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
