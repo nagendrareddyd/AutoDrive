@@ -56,7 +56,7 @@ namespace AutoDrive.UnitTests.ControllerTests
                 Request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
-                    RequestUri = new Uri(ServiceBaseURL + "api/products/product/All")
+                    RequestUri = new Uri(ServiceBaseURL + "api/products")
                 }
             };
             productController.Request.Properties.Add(HttpPropertyKeys.HttpConfigurationKey, new HttpConfiguration());

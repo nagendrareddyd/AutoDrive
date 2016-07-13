@@ -1,32 +1,32 @@
-﻿using AutoDriveIoc;
-using AutoDriveServices.IoCRegistry;
+﻿using AutoDriveAPI.IoC;
+using AutoDriveServices;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
+using Microsoft.Owin;
+using Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using System.Web.Http.Dispatcher;
-using System.Web.Routing;
 
-using AutoDriveAPI.IoC;
-using AutoDriveServices;
-
+[assembly: OwinStartup(typeof(AutoDriveAPI.Startup))]
 namespace AutoDriveAPI
-{
-    public class WebApiApplication : System.Web.HttpApplication
+{    
+    public class Startup 
     {
         private static IWindsorContainer _container;
-        protected void Application_Start()
+        public void Configuration(IAppBuilder app)
         {
-            /*ConfigureWindsor(GlobalConfiguration.Configuration);
-            GlobalConfiguration.Configure(c => WebApiConfig.Register(c, _container));
-            AutoMapperSetup.Init();*/
+            HttpConfiguration config = new HttpConfiguration();            
+            app.UseWebApi(config);
+            ConfigureWindsor(config);
+            WebApiConfig.Register(config, _container);
+            AutoMapperSetup.Init();            
         }
 
-        public static void ConfigureWindsor(HttpConfiguration configuration)
+        private static void ConfigureWindsor(HttpConfiguration configuration)
         {
             _container = new WindsorContainer();
             _container.Install(FromAssembly.This());

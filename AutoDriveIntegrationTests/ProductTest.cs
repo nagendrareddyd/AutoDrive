@@ -14,7 +14,7 @@ namespace AutoDriveIntegrationTests
     public class ProductTest
     {
         private HttpResponseMessage _response;
-        private const string ServiceBaseURL = "http://localhost:50875/";
+        private const string ServiceBaseURL = "http://testing/";
         private HttpClient client;
 
         [OneTimeSetUp]

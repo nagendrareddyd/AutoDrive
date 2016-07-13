@@ -10,7 +10,7 @@ using System.Web;
 
 namespace AutoDriveDataModel.Repository
 {
-    public class MongoRepository<T> : IMongoRepository<T> where T : BaseModel
+    public class MongoRepository<T> : IMongoRepository<T> 
     {
         public string CollectionName { get; set; }
 
@@ -27,7 +27,14 @@ namespace AutoDriveDataModel.Repository
         {            
             return MongoDB.GetCollection<T>(CollectionName).AsQueryable();
         }
-
+        /// <summary>
+		/// Get collection as IMongoCollection
+		/// </summary>
+		/// <returns>IMongo Collection</returns>
+		public IMongoCollection<T> GetAll()
+        {
+            return MongoDB.GetCollection<T>(CollectionName);
+        }
         public async Task<IList<T>> Find(Expression<Func<T, bool>> query)
         {
             // Return the enumerable of the collection

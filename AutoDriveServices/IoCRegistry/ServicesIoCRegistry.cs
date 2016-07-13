@@ -19,6 +19,7 @@ namespace AutoDriveServices.IoCRegistry
 
         public static void Init() {            
             IocContainer.container.Register(Component.For<IProductServices>().ImplementedBy<ProductServices>());
+            IocContainer.container.Register(Component.For<IUserService>().ImplementedBy<UserService>());
         }
     }
 }
