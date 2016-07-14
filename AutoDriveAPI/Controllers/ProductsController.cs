@@ -18,6 +18,7 @@ namespace AutoDriveAPI.Controllers
             ProductServices = productRepository;
         }
 
+        [Authorize]
         // GET: api/Products           
         public HttpResponseMessage Get()
         {            

@@ -14,8 +14,6 @@ namespace AutoDriveServices
     {
 		ApplicationUserManager UserManager { get; set; }
 		Task<SignInStatus> PasswordSignIn(string userName, string password, bool isPersistent, bool shouldLockout);
-        ClientEntity FindClient(string clientId);
-		Task<IdentityResult> RegisterUser(UserEntity userModel);
-
+        Task<IdentityResult> RegisterUser(UserEntity userModel);
 	}
 }

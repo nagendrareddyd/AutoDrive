@@ -8,6 +8,7 @@ using System.Net.Http;
 using AutoDriveEntities;
 using Newtonsoft.Json;
 using System.Net;
+using System.Configuration;
 
 namespace AutoDriveIntegrationTests
 {
@@ -21,8 +22,10 @@ namespace AutoDriveIntegrationTests
         public void Setup()
         {
             client = new HttpClient { BaseAddress = new Uri(ServiceBaseURL) };
-            /*client.DefaultRequestHeaders.Add("Authorization", "Basic YWtoaWw6YWtoaWw=");
-            MediaTypeFormatter jsonFormatter = new JsonMediaTypeFormatter();
+            // replace the token  as per the request
+            var token = ConfigurationManager.AppSettings["AppToken"].ToString();
+            client.DefaultRequestHeaders.Add("Authorization", token);
+            /*MediaTypeFormatter jsonFormatter = new JsonMediaTypeFormatter();
             _response = client.PostAsync("login", null).Result;
 
             if (_response != null && _response.Headers != null && _response.Headers.Contains("Token") && _response.Headers.GetValues("Token") != null)

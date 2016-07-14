@@ -53,69 +53,7 @@ namespace AutoDriveServices
             }
             return SignInStatus.Failure;
         }
-        private async Task<SignInStatus> SignInOrTwoFactor(ApplicationUser user, bool isPersistent)
-        {
-            if (await UserManager.GetTwoFactorEnabledAsync(user.Id) &&
-                !await AuthenticationManager.TwoFactorBrowserRememberedAsync(user.Id))
-            {
-                var identity = new ClaimsIdentity(DefaultAuthenticationTypes.TwoFactorCookie);
-                identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
-                AuthenticationManager.SignIn(identity);
-                return SignInStatus.RequiresTwoFactorAuthentication;
-            }
-            await SignInAsync(user, isPersistent, false);
-            return SignInStatus.Success;
-
-        }
-        public async Task SignInAsync(ApplicationUser user, bool isPersistent, bool rememberBrowser)
-        {
-            // Clear any partial cookies from external or two factor partial sign ins
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie, DefaultAuthenticationTypes.TwoFactorCookie);
-            var userIdentity = await user.GenerateUserIdentityAsync(UserManager);
-            if (rememberBrowser)
-            {
-                var rememberBrowserIdentity = AuthenticationManager.CreateTwoFactorRememberBrowserIdentity(user.Id);
-                AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = isPersistent }, userIdentity, rememberBrowserIdentity);
-            }
-            else
-            {
-                AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = isPersistent }, userIdentity);
-            }
-        }
-        public async Task<bool> SendTwoFactorCode(string provider)
-        {
-            var userId = await GetVerifiedUserIdAsync();
-            if (userId == null)
-            {
-                return false;
-            }
-
-            var token = await UserManager.GenerateTwoFactorTokenAsync(userId, provider);
-            // See IdentityConfig.cs to plug in Email/SMS services to actually send the code
-            await UserManager.NotifyTwoFactorTokenAsync(userId, provider, token);
-            return true;
-        }
-        public async Task<string> GetVerifiedUserIdAsync()
-        {
-            var result = await AuthenticationManager.AuthenticateAsync(DefaultAuthenticationTypes.TwoFactorCookie);
-            if (result != null && result.Identity != null && !String.IsNullOrEmpty(result.Identity.GetUserId()))
-            {
-                return result.Identity.GetUserId();
-            }
-            return null;
-        }
-
-        public ClientEntity FindClient(string clientId)
-        {
-            var clients = _unitOfWork.GetClientRepository.FindAll().Where(c =>c.ClientId == clientId).ToList();
-            if (clients.Any())
-            {
-                var repo = AutoMapperSetup.AutoMap.Map<Client, ClientEntity> (clients[0]);
-                return repo;
-            }
-            return null;
-        }
-
+                
 		public async Task<IdentityResult> RegisterUser(UserEntity userModel)
 		{
 			ApplicationUser user = new ApplicationUser

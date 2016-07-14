@@ -33,28 +33,28 @@ namespace AutoDriveIntegrationTests.AuthenticationTests
             }*/
 		}
 
-		//[Test]
+		[Test]
 		public void LoginTest()
 		{
-			client.DefaultRequestHeaders.Add("grant_type", "password");
-			client.DefaultRequestHeaders.Add("username", "nagenda");
-			client.DefaultRequestHeaders.Add("password", "nagendra~1");
-			_response = client.GetAsync("token").Result;
-			var responseResult =
-				JsonConvert.DeserializeObject<List<ProductEntity>>(_response.Content.ReadAsStringAsync().Result);
-			Assert.AreEqual(_response.StatusCode, HttpStatusCode.OK);
-			Assert.AreEqual(responseResult.Any(), true);
+            var parameters = new FormUrlEncodedContent(new[] {
+                                    new KeyValuePair<string, string>("grant_type", "password"),
+                                    new KeyValuePair<string, string>("userName", "nage124@here.com"),
+                                    new KeyValuePair<string, string>("password", "Nagendra~1")                                    
+                                    });
+            _response = client.PostAsync("token", parameters).Result;			
+			Assert.AreEqual(_response.StatusCode, HttpStatusCode.OK);			
 		}
 
-		[Test]
-		public void RegisterUserTest()
-		{				
-			StringContent data = new StringContent("{\"userName\":\"nage1234\",\"password\":\"nagendra~1\",\"confirmPassword\":\"nagendra~1\"}", Encoding.UTF8,"application/json");
-			_response = client.PostAsync("Register", data).Result; //GetAsync("accounts/register").Result;
-			/*var responseResult =
-				JsonConvert.DeserializeObject<List<UserEntity>>(_response.Content.ReadAsStringAsync().Result);
-			Assert.AreEqual(_response.StatusCode, HttpStatusCode.OK);
-			Assert.AreEqual(responseResult.Any(), true);*/
-		}
+        //[Test]
+        public void RegisterUserTest()
+        {
+            var parameters = new FormUrlEncodedContent(new[] {
+                                    new KeyValuePair<string, string>("userName", "nage124@here.com"),
+                                    new KeyValuePair<string, string>("password", "Nagendra~1"),
+                                    new KeyValuePair<string, string>("confirmPassword", "Nagendra~1")
+                                    });
+            _response = client.PostAsync("Register", parameters).Result; 
+            Assert.AreEqual(_response.StatusCode, HttpStatusCode.OK);
+        }
 	}
 }

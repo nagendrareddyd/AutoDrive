@@ -1,4 +1,5 @@
 ﻿using AutoDriveAPI.IoC;
+using AutoDriveAPI.Providers;
 using AutoDriveServices;
 using AutoDriveServices.MongoIdentity;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
