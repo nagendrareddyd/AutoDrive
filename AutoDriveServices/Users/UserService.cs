@@ -1,4 +1,5 @@
-﻿using AutoDriveDataModel.Models;
+﻿using AspNet.Identity.MongoDB;
+using AutoDriveDataModel.Models;
 using AutoDriveDataModel.UnitOfWork;
 using AutoDriveEntities;
 using AutoDriveServices.MongoIdentity;
@@ -21,9 +22,9 @@ namespace AutoDriveServices
         {
             _unitOfWork = unitOfWork;
         }
-        public ApplicationUserManager UserManager { get; private set; }
+        public ApplicationUserManager UserManager { get; set; }
 
-        public IAuthenticationManager AuthenticationManager { get; private set; }
+        public IAuthenticationManager AuthenticationManager { get; set; }
 
         public async Task<SignInStatus> PasswordSignIn(string userName, string password, bool isPersistent, bool shouldLockout)
         {
@@ -113,6 +114,19 @@ namespace AutoDriveServices
                 return repo;
             }
             return null;
-        } 
-    }
+        }
+
+		public async Task<IdentityResult> RegisterUser(UserEntity userModel)
+		{
+			ApplicationUser user = new ApplicationUser
+			{
+				UserName = userModel.UserName,
+				Email = userModel.UserName
+			};
+
+			var result = await UserManager.CreateAsync(user, userModel.Password);
+
+			return result;
+		}
+	}
 }

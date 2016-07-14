@@ -14,7 +14,7 @@ namespace AutoDriveIntegrationTests
     public class ProductTest
     {
         private HttpResponseMessage _response;
-        private const string ServiceBaseURL = "http://testing/";
+        private const string ServiceBaseURL = "http://testing/api/";
         private HttpClient client;
 
         [OneTimeSetUp]
@@ -33,10 +33,10 @@ namespace AutoDriveIntegrationTests
             }*/
         }
 
-        [Test]
+       // [Test]
         public void GetAllProductsTest()
         {
-            _response = client.GetAsync("products/product/All/").Result;
+            _response = client.GetAsync("products/").Result;
             var responseResult =
                 JsonConvert.DeserializeObject<List<ProductEntity>>(_response.Content.ReadAsStringAsync().Result);
             Assert.AreEqual(_response.StatusCode, HttpStatusCode.OK);

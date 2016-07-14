@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using AutoDriveAPI.IoC;
+using Newtonsoft.Json.Serialization;
+using System.Net.Http.Formatting;
 
 namespace AutoDriveAPI
 {
@@ -28,7 +30,10 @@ namespace AutoDriveAPI
                 defaults: new { id = RouteParameter.Optional }
             );
             RegisterControllerActivator(container);
-        }
+
+			var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+			jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+		}
 
         private static void RegisterControllerActivator(IWindsorContainer container)
         {
