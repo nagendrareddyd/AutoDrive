@@ -1,0 +1,1 @@
+Base project with Authentication,Logging,Exception handling, Unit tests and Integration test.
