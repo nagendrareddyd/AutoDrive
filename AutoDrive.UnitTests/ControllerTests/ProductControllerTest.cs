@@ -17,6 +17,7 @@ using System.Web.Http.Hosting;
 using Newtonsoft.Json;
 using System.Net;
 using AutoDrive.UnitTests.Helper;
+using AutoDriveServices;
 
 namespace AutoDrive.UnitTests.ControllerTests
 {
@@ -40,6 +41,7 @@ namespace AutoDrive.UnitTests.ControllerTests
             _unitOfWork = unitOfWork.Object;
             _productService = new ProductServices(_unitOfWork);
             _client = new HttpClient { BaseAddress = new Uri(ServiceBaseURL) };
+            AutoMapperSetup.Init();
         }
 
         [SetUp]

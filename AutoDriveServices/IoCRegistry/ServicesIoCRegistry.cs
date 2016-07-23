@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoDriveServices.Product;
+using AutoDriveServices.MasterData;
+
 namespace AutoDriveServices.IoCRegistry
 {
     public class ServicesIoCRegistry
@@ -20,6 +22,7 @@ namespace AutoDriveServices.IoCRegistry
         public static void Init() {            
             IocContainer.container.Register(Component.For<IProductServices>().ImplementedBy<ProductServices>());
             IocContainer.container.Register(Component.For<IUserService>().ImplementedBy<UserService>());
+            IocContainer.container.Register(Component.For<IAreaService>().ImplementedBy<AreaService>());
         }
     }
 }

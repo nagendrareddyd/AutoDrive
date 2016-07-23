@@ -15,7 +15,7 @@ namespace AutoDriveDataModel.UnitOfWork
         private IMongoRepository<Product> _productRepository;
         private IMongoRepository<ApplicationUser> _userRepository;
         private IMongoRepository<IdentityRole> _roleRepository;
-        private IMongoRepository<Client> _clientRepository;
+        private IMongoRepository<Area> _areaRepository;
 
         public IMongoRepository<Product> GetProductRepository
         {
@@ -55,16 +55,16 @@ namespace AutoDriveDataModel.UnitOfWork
             }
         }
 
-        public IMongoRepository<Client> GetClientRepository
+        public IMongoRepository<Area> GetAreaRepository
         {
             get
             {
-                if (_clientRepository == null)
+                if (_areaRepository == null)
                 {
-                    _clientRepository = AutoDriveIoc.IocContainer.Resolve<IMongoRepository<Client>>();
-                    _clientRepository.CollectionName = "client";
+                    _areaRepository = AutoDriveIoc.IocContainer.Resolve<IMongoRepository<Area>>();
+                    _areaRepository.CollectionName = "Areas";
                 }
-                return _clientRepository;
+                return _areaRepository;
             }
         }
 

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaEntity.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="ProductEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
