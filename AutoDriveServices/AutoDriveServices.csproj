@@ -105,9 +105,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperSetup.cs" />
+    <Compile Include="Instructor\InstructorService.cs" />
+    <Compile Include="Instructor\IInstructorService.cs" />
     <Compile Include="IoCRegistry\ServicesIoCRegistry.cs" />
-    <Compile Include="MasterData\IAreaService.cs" />
     <Compile Include="MasterData\AreaService.cs" />
+    <Compile Include="MasterData\IAreaService.cs" />
+    <Compile Include="Student\IStudentService.cs" />
+    <Compile Include="Student\StudentService.cs" />
     <Compile Include="Users\IUserService.cs" />
     <Compile Include="MongoIdentity\ApplicationIdentityContext.cs" />
     <Compile Include="MongoIdentity\ApplicationRoleManager.cs" />

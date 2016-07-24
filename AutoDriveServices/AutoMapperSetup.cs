@@ -15,7 +15,11 @@ namespace AutoDriveServices
         {
             var config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<Model.Product, ProductEntity>();
-                cfg.CreateMap<Model.Area, AreaEntity>();                
+                cfg.CreateMap<Model.Area, AreaEntity>();
+                cfg.CreateMap<Model.Suburb, Suburb>();
+                cfg.CreateMap<Model.Instructor, InstructorEntity>();
+                cfg.CreateMap<Model.Student, StudentEntity>();
+                cfg.CreateMap<Model.StudentInstructor, StudentInstructor>();
             });
             AutoMap = config.CreateMapper();
         }

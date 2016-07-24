@@ -18,7 +18,15 @@ namespace AutoDriveAPI.Util
         // Error code starts with 9001
         public const string ErrorCode9001 = "No Areas found";
         public const string ErrorCode9002 = "No Area found";
-        public const string ErrorCode9003 = "Save Failed, Area Code already exists";        
+        public const string ErrorCode9003 = "Save Failed, Area Code already exists";
+
+        public const string ErrorCode9011 = "No Instructors found";
+        public const string ErrorCode9012 = "No Instructor found";
+        public const string ErrorCode9013 = "Save Failed, Instructor Code already exists";
+
+        public const string ErrorCode9021 = "No Students found";
+        public const string ErrorCode9022 = "No Student found";
+        public const string ErrorCode9023 = "Save Failed, Student Code already exists";
 
     }
 }

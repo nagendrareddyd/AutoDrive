@@ -15,5 +15,7 @@ namespace AutoDriveDataModel.UnitOfWork
         IMongoRepository<ApplicationUser> GetUserRepository { get; }
         IMongoRepository<IdentityRole> GetRoleRepository { get; }
         IMongoRepository<Area> GetAreaRepository { get; }
+        IMongoRepository<Instructor> GetInstructorRepository { get; }
+        IMongoRepository<Student> GetStudentRepository { get; }
     }
 }

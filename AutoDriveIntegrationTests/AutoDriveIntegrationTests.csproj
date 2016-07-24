@@ -80,8 +80,10 @@
     <Compile Include="AreaTests.cs" />
     <Compile Include="AuthenticationTests\AuthTests.cs" />
     <Compile Include="ErrorResponse.cs" />
+    <Compile Include="InstructorTests.cs" />
     <Compile Include="ProductTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoDriveAPI\AutoDriveAPI.csproj">

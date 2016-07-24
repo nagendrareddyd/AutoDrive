@@ -16,6 +16,8 @@ namespace AutoDriveDataModel.UnitOfWork
         private IMongoRepository<ApplicationUser> _userRepository;
         private IMongoRepository<IdentityRole> _roleRepository;
         private IMongoRepository<Area> _areaRepository;
+        private IMongoRepository<Instructor> _instructorRepository;
+        private IMongoRepository<Student> _studentRepository;
 
         public IMongoRepository<Product> GetProductRepository
         {
@@ -67,7 +69,30 @@ namespace AutoDriveDataModel.UnitOfWork
                 return _areaRepository;
             }
         }
-
+        public IMongoRepository<Instructor> GetInstructorRepository
+        {
+            get
+            {
+                if (_instructorRepository == null)
+                {
+                    _instructorRepository = AutoDriveIoc.IocContainer.Resolve<IMongoRepository<Instructor>>();
+                    _instructorRepository.CollectionName = "Instructors";
+                }
+                return _instructorRepository;
+            }
+        }
+        public IMongoRepository<Student> GetStudentRepository
+        {
+            get
+            {
+                if (_studentRepository == null)
+                {
+                    _studentRepository = AutoDriveIoc.IocContainer.Resolve<IMongoRepository<Student>>();
+                    _studentRepository.CollectionName = "Students";
+                }
+                return _studentRepository;
+            }
+        }
         public void Dispose()
         {
             throw new NotImplementedException();

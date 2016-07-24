@@ -29,8 +29,8 @@ namespace AutoDriveServices.MasterData
         {
             var areas = _unitOfWork.GetAreaRepository.FindAll();
             if (areas.Any())
-            {   
-                return AutoMapperSetup.AutoMap.Map<List<Model.Area>, List<AreaEntity>>(areas.ToList());                
+            {
+                return AutoMapperSetup.AutoMap.Map<List<Model.Area>, List<AreaEntity>>(areas.ToList());
             }
             return null;
         }
@@ -38,7 +38,7 @@ namespace AutoDriveServices.MasterData
         public AreaEntity GetArea(string id)
         {
             var area = _unitOfWork.GetAreaRepository.GetById(id);
-            if(area != null)
+            if (area != null)
             {
                 return AutoMapperSetup.AutoMap.Map<Model.Area, AreaEntity>(area);
             }
@@ -81,7 +81,7 @@ namespace AutoDriveServices.MasterData
                     AreaCode = area.AreaCode,
                     Name = area.Name
                 };
-                _unitOfWork.GetAreaRepository.Insert(_area);                               
+                _unitOfWork.GetAreaRepository.Insert(_area);
                 return true;
             }
             catch (Exception ex)
@@ -97,22 +97,22 @@ namespace AutoDriveServices.MasterData
                 _unitOfWork.GetAreaRepository.Delete(id);
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 // log the exception
                 return false;
-            }            
+            }
         }
         private bool Update(Model.Area area)
         {
-            var builder = Builders<Model.Area>.Filter;            
+            var builder = Builders<Model.Area>.Filter;
             var filter = builder.Eq(x => x.Id, area.Id);
             var updatebuilder = Builders<Model.Area>.Update;
             var updates = updatebuilder
                 .Set(t => t.AreaCode, area.AreaCode)
                 .Set(t => t.Name, area.Name);
 
-            return _unitOfWork.GetAreaRepository.Update(filter, updates);            
-        }        
+            return _unitOfWork.GetAreaRepository.Update(filter, updates);
+        }
     }
 }

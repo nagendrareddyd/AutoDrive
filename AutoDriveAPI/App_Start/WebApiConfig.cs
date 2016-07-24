@@ -8,7 +8,7 @@ using System.Web.Http.Dispatcher;
 using AutoDriveAPI.IoC;
 using Newtonsoft.Json.Serialization;
 using System.Net.Http.Formatting;
-
+using System.Web.Http.Cors;
 namespace AutoDriveAPI
 {
     public static class WebApiConfig
@@ -29,6 +29,7 @@ namespace AutoDriveAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            config.EnableCors(new EnableCorsAttribute("*", "*", "GET"));
             RegisterControllerActivator(container);
 
 			var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
