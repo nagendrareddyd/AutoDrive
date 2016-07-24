@@ -11,6 +11,8 @@ using AutoDriveServices.Product;
 using AutoDriveServices.MasterData;
 using AutoDriveServices.Instructor;
 using AutoDriveServices.Student;
+using AutoDriveServices.Booking;
+
 namespace AutoDriveServices.IoCRegistry
 {
     public class ServicesIoCRegistry
@@ -26,6 +28,7 @@ namespace AutoDriveServices.IoCRegistry
             IocContainer.container.Register(Component.For<IAreaService>().ImplementedBy<AreaService>());
             IocContainer.container.Register(Component.For<IInstructorService>().ImplementedBy<InstructorService>());
             IocContainer.container.Register(Component.For<IStudentService>().ImplementedBy<StudentService>());
+            IocContainer.container.Register(Component.For<IBookingService>().ImplementedBy<BookingService>());
         }
     }
 }

@@ -18,6 +18,7 @@ namespace AutoDriveDataModel.UnitOfWork
         private IMongoRepository<Area> _areaRepository;
         private IMongoRepository<Instructor> _instructorRepository;
         private IMongoRepository<Student> _studentRepository;
+        private IMongoRepository<Booking> _bookingRepository;
 
         public IMongoRepository<Product> GetProductRepository
         {
@@ -91,6 +92,18 @@ namespace AutoDriveDataModel.UnitOfWork
                     _studentRepository.CollectionName = "Students";
                 }
                 return _studentRepository;
+            }
+        }
+        public IMongoRepository<Booking> GetBookingRepository
+        {
+            get
+            {
+                if (_bookingRepository == null)
+                {
+                    _bookingRepository = AutoDriveIoc.IocContainer.Resolve<IMongoRepository<Booking>>();
+                    _bookingRepository.CollectionName = "Bookings";
+                }
+                return _bookingRepository;
             }
         }
         public void Dispose()

@@ -103,6 +103,131 @@ namespace AutoDriveIntegrationTests
             _response = client.PostAsync("student/", contentPost).Result;
             Assert.AreEqual(HttpStatusCode.OK, _response.StatusCode);
         }
+
+        [Test]
+        public void InsertExistingStudentCodeTest()
+        {
+            var student = new StudentEntity()
+            {
+                Id= "57946b9a3ee6515e7c077c9a",
+                DOB = "18/07/1983",
+                Email = "ravi@gmail.com",
+                FullName = "S_ravikumar",
+                Gender = "Male",
+                Instructor = new StudentInstructor
+                {
+                    Id = "579375ff3ee6514914cb2822",
+                    InstructorName = "Nagi"
+                },
+                LicenceCountry = "Australia",
+                LicenceExpireOn = "18/07/2019",
+                LicenceNumber = "25556324",
+                LicenceState = "NSW",
+                Mobile = "04041525636",
+                PickUpLocation = "near chatswood station",
+                Status = "Active",
+                StudentCode = "ST102",
+                Suburbs = new Suburb()
+                {
+                    PostCode = "2011",
+                    SuburbName = "Artarmon"
+                }
+            };
+            var param = JsonConvert.SerializeObject(student);
+            HttpContent contentPost = new StringContent(param, Encoding.UTF8, "application/json");
+            _response = client.PostAsync("student/", contentPost).Result;
+            Assert.AreEqual(HttpStatusCode.Conflict, _response.StatusCode);
+            var responseResult =
+               JsonConvert.DeserializeObject<ErrorResponse>(_response.Content.ReadAsStringAsync().Result);
+            Assert.AreEqual(responseResult.StatusCode, "9023");
+        }
+        [Test]
+        public void UpdateStudentTest()
+        {
+            var student = new StudentEntity()
+            {
+                Id = "57946b9a3ee6515e7c077c9a",
+                DOB = "18/07/1983",
+                Email = "ravi@gmail.com.au",
+                FullName = "S_ravikumar",
+                Gender = "Male",
+                Instructor = new StudentInstructor
+                {
+                    Id = "579375ff3ee6514914cb2822",
+                    InstructorName = "Nagi"
+                },
+                LicenceCountry = "Australia",
+                LicenceExpireOn = "18/07/2019",
+                LicenceNumber = "25556324",
+                LicenceState = "NSW",
+                Mobile = "04041525636",
+                PickUpLocation = "near chatswood station",
+                Status = "Active",
+                StudentCode = "ST102",
+                Suburbs = new Suburb()
+                {
+                    PostCode = "2011",
+                    SuburbName = "Artarmon"
+                }
+            };
+            var param = JsonConvert.SerializeObject(student);
+            HttpContent contentPost = new StringContent(param, Encoding.UTF8, "application/json");
+            _response = client.PutAsync("student/", contentPost).Result;
+            Assert.AreEqual(HttpStatusCode.OK, _response.StatusCode);
+        }
+        [Test]
+        public void UpdateStudentWithNonExistingIdTest()
+        {
+            var student = new StudentEntity()
+            {
+                Id = "57946b9a3ee6515e7c077",
+                DOB = "18/07/1983",
+                Email = "ravi@gmail.com",
+                FullName = "S_ravikumar",
+                Gender = "Male",
+                Instructor = new StudentInstructor
+                {
+                    Id = "579375ff3ee6514914cb2822",
+                    InstructorName = "Nagi"
+                },
+                LicenceCountry = "Australia",
+                LicenceExpireOn = "18/07/2019",
+                LicenceNumber = "25556324",
+                LicenceState = "NSW",
+                Mobile = "04041525636",
+                PickUpLocation = "near chatswood station",
+                Status = "Active",
+                StudentCode = "ST102",
+                Suburbs = new Suburb()
+                {
+                    PostCode = "2011",
+                    SuburbName = "Artarmon"
+                }
+            };
+            var param = JsonConvert.SerializeObject(student);
+            HttpContent contentPost = new StringContent(param, Encoding.UTF8, "application/json");
+            _response = client.PutAsync("student/", contentPost).Result;
+            Assert.AreEqual(HttpStatusCode.NotFound, _response.StatusCode);
+            var responseResult =
+               JsonConvert.DeserializeObject<ErrorResponse>(_response.Content.ReadAsStringAsync().Result);
+            Assert.AreEqual(responseResult.StatusCode, "9022");
+        }
+        [Test]
+        public void DeleteStudentByRightIdTest()
+        {
+            _response = client.DeleteAsync("student/57946b9a3ee6515e7c077c9a").Result;
+            Assert.AreEqual(_response.StatusCode, HttpStatusCode.OK);
+        }
+
+        [Test]
+        public void DeleteStudentByWrongIdTest()
+        {
+            _response = client.DeleteAsync("student/57922c833e1f58ac9").Result;
+            Assert.AreEqual(_response.StatusCode, HttpStatusCode.NotFound);
+            var responseResult =
+               JsonConvert.DeserializeObject<ErrorResponse>(_response.Content.ReadAsStringAsync().Result);
+            Assert.AreEqual(responseResult.StatusCode, "9022");
+        }
         [TearDown]
         public void DisposeTest()
         {

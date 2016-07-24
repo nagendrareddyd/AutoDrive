@@ -123,7 +123,7 @@ namespace AutoDriveServices.Student
             }
             catch (Exception ex)
             {
-                //log the exception
+                logger.Log(LogLevel.Error, ex);
                 return false;
             }
         }
@@ -132,12 +132,11 @@ namespace AutoDriveServices.Student
         {
             try
             {
-                _unitOfWork.GetAreaRepository.Delete(id);
-                return true;
+                return _unitOfWork.GetStudentRepository.Delete(id);                
             }
             catch (Exception ex)
             {
-                // log the exception
+                logger.Log(LogLevel.Error, ex);
                 return false;
             }
         }

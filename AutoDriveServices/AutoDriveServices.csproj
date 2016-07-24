@@ -105,6 +105,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperSetup.cs" />
+    <Compile Include="Booking\IBookingService.cs" />
+    <Compile Include="Booking\BookingService.cs" />
     <Compile Include="Instructor\InstructorService.cs" />
     <Compile Include="Instructor\IInstructorService.cs" />
     <Compile Include="IoCRegistry\ServicesIoCRegistry.cs" />
