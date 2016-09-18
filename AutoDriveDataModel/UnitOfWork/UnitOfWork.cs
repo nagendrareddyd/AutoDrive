@@ -5,7 +5,7 @@ using System;
 
 namespace AutoDriveDataModel.UnitOfWork
 {
-    public class UnitOfWork : IDisposable,IUnitOfWork
+    public class UnitOfWork : IDisposable, IUnitOfWork
     {
         private IMongoRepository<Product> _productRepository;
         private IMongoRepository<ApplicationUser> _userRepository;
@@ -15,6 +15,7 @@ namespace AutoDriveDataModel.UnitOfWork
         private IMongoRepository<Student> _studentRepository;
         private IMongoRepository<Suburb> _suburbRepository;
         private IMongoRepository<Address> _addressRepository;
+        private IMongoRepository<Booking> _bookingRepository;
         public IMongoRepository<Product> GetProductRepository
         {
             get
@@ -91,7 +92,7 @@ namespace AutoDriveDataModel.UnitOfWork
         {
             get
             {
-                if(_suburbRepository == null)
+                if (_suburbRepository == null)
                 {
                     _suburbRepository = AutoDriveIoc.IocContainer.Resolve<IMongoRepository<Suburb>>();
                     _suburbRepository.CollectionName = "Suburbs";
@@ -111,9 +112,22 @@ namespace AutoDriveDataModel.UnitOfWork
                 return _addressRepository;
             }
         }
+        public IMongoRepository<Booking> GetBookingRepository
+        {
+            get
+            {
+                if (_bookingRepository == null)
+                {
+                    _bookingRepository = AutoDriveIoc.IocContainer.Resolve<IMongoRepository<Booking>>();
+                    _bookingRepository.CollectionName = "Bookings";
+                }
+                return _bookingRepository;
+            }
+        }
         public void Dispose()
         {
             throw new NotImplementedException();
         }
     }
 }
+
