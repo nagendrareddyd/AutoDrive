@@ -1,12 +1,7 @@
 ﻿using AspNet.Identity.MongoDB;
 using AutoDriveDataModel.Models;
-using AutoDriveDataModel.Repository;
 using AutoDriveDataModel.Repository.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoDriveDataModel.UnitOfWork
 {
@@ -18,7 +13,8 @@ namespace AutoDriveDataModel.UnitOfWork
         private IMongoRepository<Area> _areaRepository;
         private IMongoRepository<Instructor> _instructorRepository;
         private IMongoRepository<Student> _studentRepository;
-
+        private IMongoRepository<Suburb> _suburbRepository;
+        private IMongoRepository<Address> _addressRepository;
         public IMongoRepository<Product> GetProductRepository
         {
             get
@@ -43,7 +39,6 @@ namespace AutoDriveDataModel.UnitOfWork
                 return _userRepository;
             }
         }
-
         public IMongoRepository<IdentityRole> GetRoleRepository
         {
             get
@@ -56,7 +51,6 @@ namespace AutoDriveDataModel.UnitOfWork
                 return _roleRepository;
             }
         }
-
         public IMongoRepository<Area> GetAreaRepository
         {
             get
@@ -91,6 +85,30 @@ namespace AutoDriveDataModel.UnitOfWork
                     _studentRepository.CollectionName = "Students";
                 }
                 return _studentRepository;
+            }
+        }
+        public IMongoRepository<Suburb> GetSuburbRepository
+        {
+            get
+            {
+                if(_suburbRepository == null)
+                {
+                    _suburbRepository = AutoDriveIoc.IocContainer.Resolve<IMongoRepository<Suburb>>();
+                    _suburbRepository.CollectionName = "Suburbs";
+                }
+                return _suburbRepository;
+            }
+        }
+        public IMongoRepository<Address> GetAddressRepository
+        {
+            get
+            {
+                if (_addressRepository == null)
+                {
+                    _addressRepository = AutoDriveIoc.IocContainer.Resolve<IMongoRepository<Address>>();
+                    _addressRepository.CollectionName = "Addresses";
+                }
+                return _addressRepository;
             }
         }
         public void Dispose()

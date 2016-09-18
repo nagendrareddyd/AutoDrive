@@ -1,9 +1,5 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoDriveDataModel.Models
 {
@@ -22,7 +18,7 @@ namespace AutoDriveDataModel.Models
         [BsonElement("Home")]
         public string Home { get; set; }
         [BsonElement("Address")]
-        public string Address { get; set; }
+        public Address Address { get; set; }
         [BsonElement("Suburb")]
         public Suburb Suburb { get; set; }
         [BsonElement("Areas")]
@@ -33,7 +29,17 @@ namespace AutoDriveDataModel.Models
 
     public class Suburb
     {
+        public string Id { get; set; }
         public string SuburbName { get; set; }
-        public string PostCode { get; set; }
+        public string PostalCode { get; set; }
+        public string State { get; set; }
+    }
+    public class Address
+    {
+        public string Id { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string PostalCode { get; set; }
     }
 }

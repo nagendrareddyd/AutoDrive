@@ -1,6 +1,4 @@
-﻿using AutoDriveDataModel.Models;
-using AutoDriveDataModel.Repository.Interfaces;
-using AutoDriveIoc;
+﻿using AutoDriveDataModel.Repository.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using NLog;
@@ -9,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace AutoDriveDataModel.Repository
 {

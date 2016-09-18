@@ -85,7 +85,7 @@ namespace AutoDriveIntegrationTests
                 InstructorCode="INS102",
                 Name="Ravi Kumar",
                 Status="Active",
-                Suburb = new Suburb()
+                Suburb = new SuburbEntity()
                 {
                     PostCode = "2011",
                     SuburbName = "Parrramata"
@@ -125,7 +125,7 @@ namespace AutoDriveIntegrationTests
                 InstructorCode = "INS102",
                 Name = "Ravi Kumar",
                 Status = "Active",
-                Suburb = new Suburb()
+                Suburb = new SuburbEntity()
                 {
                     PostCode = "2011",
                     SuburbName = "Parrramata"
@@ -167,7 +167,7 @@ namespace AutoDriveIntegrationTests
                 InstructorCode = "INS102",
                 Name = "Ravi Kumar",
                 Status = "Active",
-                Suburb = new Suburb()
+                Suburb = new SuburbEntity()
                 {
                     PostCode = "2011",
                     SuburbName = "Parrramata"
@@ -206,7 +206,7 @@ namespace AutoDriveIntegrationTests
                 InstructorCode = "INS102",
                 Name = "Ravi Kumar",
                 Status = "Active",
-                Suburb = new Suburb()
+                Suburb = new SuburbEntity()
                 {
                     PostCode = "2011",
                     SuburbName = "Parrramata"

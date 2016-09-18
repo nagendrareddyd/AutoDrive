@@ -78,13 +78,19 @@ namespace AutoDriveServices.Instructor
                     _instructor.Name = instructor.Name;
                     _instructor.Gender = instructor.Gender;
                     _instructor.Email = instructor.Email;
-                    _instructor.Address = instructor.Address;                    
+                    _instructor.Address = new Model.Address
+                    {
+                        City = instructor.Address.City,
+                        PostalCode = instructor.Address.PostalCode,
+                         State = instructor.Address.State,
+                         Street = instructor.Address.Street
+                    };          
                     _instructor.Home = instructor.Home;
                     _instructor.Status = instructor.Status;
                     _instructor.Suburb = new Model.Suburb()
                     {
                         SuburbName = instructor.Suburb.SuburbName,
-                        PostCode = instructor.Suburb.PostCode
+                        PostalCode = instructor.Suburb.PostalCode
                     };
                     var areaslist = new List<Model.Area>();
                     foreach (var item in instructor.Areas)
@@ -109,8 +115,7 @@ namespace AutoDriveServices.Instructor
             {
                 var _instructor = new Model.Instructor()
                 {
-                    Address = instructor.Address,
-                    Email = instructor.Email,
+                     Email = instructor.Email,
                     Gender = instructor.Gender,
                     Home = instructor.Home,
                     InstructorCode = instructor.InstructorCode,
@@ -121,7 +126,14 @@ namespace AutoDriveServices.Instructor
                 _instructor.Suburb = new Model.Suburb()
                 {
                     SuburbName = instructor.Suburb.SuburbName,
-                    PostCode = instructor.Suburb.PostCode
+                    PostalCode = instructor.Suburb.PostalCode
+                };
+                _instructor.Address = new Model.Address()
+                {
+                    City = instructor.Address.City,
+                    PostalCode = instructor.Address.PostalCode,
+                    State = instructor.Address.State,
+                    Street = instructor.Address.Street
                 };
                 var areaslist = new List<Model.Area>();
                 foreach (var item in instructor.Areas)

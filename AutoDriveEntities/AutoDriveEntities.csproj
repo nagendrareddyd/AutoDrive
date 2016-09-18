@@ -41,12 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressEntity.cs" />
     <Compile Include="AreaEntity.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="InstructorEntity.cs" />
     <Compile Include="ProductEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateEntity.cs" />
     <Compile Include="StudentEntity.cs" />
+    <Compile Include="SuburbEntity.cs" />
     <Compile Include="UserEntity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

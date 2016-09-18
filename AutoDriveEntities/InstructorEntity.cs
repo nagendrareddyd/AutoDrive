@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace AutoDriveEntities
 {
@@ -22,18 +18,13 @@ namespace AutoDriveEntities
      
         public string Home { get; set; }
      
-        public string Address { get; set; }
+        public AddressEntity Address { get; set; }
      
-        public Suburb Suburb { get; set; }
+        public SuburbEntity Suburb { get; set;}
      
         public List<AreaEntity> Areas { get; set; }
      
         public string Status { get; set; }
     }
-
-    public class Suburb
-    {
-        public string SuburbName { get; set; }
-        public string PostCode { get; set; }
-    }
+   
 }
