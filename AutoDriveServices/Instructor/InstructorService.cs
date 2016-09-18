@@ -25,12 +25,11 @@ namespace AutoDriveServices.Instructor
         {
             try
             {
-                _unitOfWork.GetInstructorRepository.Delete(id);
-                return true;
+                return _unitOfWork.GetInstructorRepository.Delete(id);                
             }
             catch(Exception ex)
             {
-                // log the exception
+                logger.Log(LogLevel.Error, ex);
                 return false;
             }            
         }
@@ -150,7 +149,7 @@ namespace AutoDriveServices.Instructor
             }
             catch (Exception ex)
             {
-                //log the exception
+                logger.Log(LogLevel.Error, ex);
                 return false;
             }
         }

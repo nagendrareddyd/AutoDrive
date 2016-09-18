@@ -28,5 +28,9 @@ namespace AutoDriveAPI.Util
         public const string ErrorCode9022 = "No Student found";
         public const string ErrorCode9023 = "Save Failed, Student Code already exists";
 
+        public const string ErrorCode9031 = "No Bookings found";
+        public const string ErrorCode9032 = "No Booking found";
+        public const string ErrorCode9033 = "Save Failed, Booking already exists";
+
     }
 }
