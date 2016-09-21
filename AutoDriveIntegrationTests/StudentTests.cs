@@ -94,7 +94,7 @@ namespace AutoDriveIntegrationTests
                 StudentCode = "ST102",
                 Suburbs = new SuburbEntity()
                 {
-                    PostCode = "2011",
+                    PostalCode = "2011",
                     SuburbName = "Artarmon"
                 }
             };
@@ -127,9 +127,9 @@ namespace AutoDriveIntegrationTests
                 PickUpLocation = "near chatswood station",
                 Status = "Active",
                 StudentCode = "ST102",
-                Suburbs = new Suburb()
+                Suburbs = new SuburbEntity()
                 {
-                    PostCode = "2011",
+                    PostalCode = "2011",
                     SuburbName = "Artarmon"
                 }
             };
@@ -164,9 +164,9 @@ namespace AutoDriveIntegrationTests
                 PickUpLocation = "near chatswood station",
                 Status = "Active",
                 StudentCode = "ST102",
-                Suburbs = new Suburb()
+                Suburbs = new SuburbEntity()
                 {
-                    PostCode = "2011",
+                    PostalCode = "2011",
                     SuburbName = "Artarmon"
                 }
             };
@@ -198,9 +198,9 @@ namespace AutoDriveIntegrationTests
                 PickUpLocation = "near chatswood station",
                 Status = "Active",
                 StudentCode = "ST102",
-                Suburbs = new Suburb()
+                Suburbs = new SuburbEntity()
                 {
-                    PostCode = "2011",
+                    PostalCode = "2011",
                     SuburbName = "Artarmon"
                 }
             };

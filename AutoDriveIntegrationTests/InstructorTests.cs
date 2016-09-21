@@ -87,7 +87,7 @@ namespace AutoDriveIntegrationTests
                 Status="Active",
                 Suburb = new SuburbEntity()
                 {
-                    PostCode = "2011",
+                    PostalCode = "2011",
                     SuburbName = "Parrramata"
                 },
                 Areas = new List<AreaEntity>()
@@ -127,7 +127,7 @@ namespace AutoDriveIntegrationTests
                 Status = "Active",
                 Suburb = new SuburbEntity()
                 {
-                    PostCode = "2011",
+                    PostalCode = "2011",
                     SuburbName = "Parrramata"
                 },
                 Areas = new List<AreaEntity>()
@@ -169,7 +169,7 @@ namespace AutoDriveIntegrationTests
                 Status = "Active",
                 Suburb = new SuburbEntity()
                 {
-                    PostCode = "2011",
+                    PostalCode = "2011",
                     SuburbName = "Parrramata"
                 },
                 Areas = new List<AreaEntity>()
@@ -208,7 +208,7 @@ namespace AutoDriveIntegrationTests
                 Status = "Active",
                 Suburb = new SuburbEntity()
                 {
-                    PostCode = "2011",
+                    PostalCode = "2011",
                     SuburbName = "Parrramata"
                 },
                 Areas = new List<AreaEntity>()

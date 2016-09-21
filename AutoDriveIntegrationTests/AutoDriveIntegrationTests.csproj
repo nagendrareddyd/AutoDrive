@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="AreaTests.cs" />
     <Compile Include="AuthenticationTests\AuthTests.cs" />
+    <Compile Include="BookingTests.cs" />
     <Compile Include="ErrorResponse.cs" />
     <Compile Include="InstructorTests.cs" />
     <Compile Include="ProductTest.cs" />
