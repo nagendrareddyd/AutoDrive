@@ -6,7 +6,6 @@ using AutoDriveServices.MasterData;
 using AutoDriveServices.Instructor;
 using AutoDriveServices.Student;
 using AutoDriveServices.Suburb;
-using AutoDriveServices.Address;
 using AutoDriveServices.Booking;
 
 
@@ -27,7 +26,6 @@ namespace AutoDriveServices.IoCRegistry
             IocContainer.container.Register(Component.For<IInstructorService>().ImplementedBy<InstructorService>());
             IocContainer.container.Register(Component.For<IStudentService>().ImplementedBy<StudentService>());
             IocContainer.container.Register(Component.For<ISuburbService>().ImplementedBy<ISuburbService>());
-            IocContainer.container.Register(Component.For<IAddressService>().ImplementedBy<IAddressService>());
             IocContainer.container.Register(Component.For<IBookingService>().ImplementedBy<BookingService>());
 
         }

@@ -112,8 +112,6 @@
     <Compile Include="IoCRegistry\ServicesIoCRegistry.cs" />
     <Compile Include="MasterData\AreaService.cs" />
     <Compile Include="MasterData\IAreaService.cs" />
-    <Compile Include="Address\IAddressService.cs" />
-    <Compile Include="Address\AddressService.cs" />
     <Compile Include="Student\IStudentService.cs" />
     <Compile Include="Student\StudentService.cs" />
     <Compile Include="Suburb\ISuburbService.cs" />

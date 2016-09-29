@@ -23,6 +23,7 @@ namespace AutoDriveAPI
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration config = new HttpConfiguration();
+            config.EnableCors();
 			ConfigureOAuthTokenGeneration(app);
 			app.UseWebApi(config);
             ConfigureWindsor(config);

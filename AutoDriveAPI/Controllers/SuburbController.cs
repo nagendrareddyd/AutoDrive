@@ -1,5 +1,4 @@
-﻿using AutoDriveServices.Address;
-using AutoDriveServices.Suburb;
+﻿using AutoDriveServices.Suburb;
 using System.Web.Http;
 
 namespace AutoDriveAPI.Controllers
@@ -8,12 +7,10 @@ namespace AutoDriveAPI.Controllers
     {
         
         private ISuburbService SuburbService { get; set; }
-        private IAddressService StateService { get; set; }
-
-        public SuburbController(ISuburbService suburbservice,IAddressService stateservice)
+       
+        public SuburbController(ISuburbService suburbservice)
         {
-            SuburbService = suburbservice;
-            StateService = stateservice;
+            SuburbService = suburbservice;            
         }
         // GET: Suburb      
      

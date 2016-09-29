@@ -102,7 +102,6 @@ namespace AutoDriveServices.Student
                     Gender = student.Gender,
                     Instructor = new Model.StudentInstructor()
                     {
-                        Id = ObjectId.Parse(student.Instructor.Id),
                         InstructorName = student.Instructor.InstructorName
                     },
                     LicenceCountry = student.LicenceCountry,

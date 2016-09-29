@@ -14,7 +14,6 @@ namespace AutoDriveDataModel.UnitOfWork
         private IMongoRepository<Instructor> _instructorRepository;
         private IMongoRepository<Student> _studentRepository;
         private IMongoRepository<Suburb> _suburbRepository;
-        private IMongoRepository<Address> _addressRepository;
         private IMongoRepository<Booking> _bookingRepository;
         public IMongoRepository<Product> GetProductRepository
         {
@@ -98,18 +97,6 @@ namespace AutoDriveDataModel.UnitOfWork
                     _suburbRepository.CollectionName = "Suburbs";
                 }
                 return _suburbRepository;
-            }
-        }
-        public IMongoRepository<Address> GetAddressRepository
-        {
-            get
-            {
-                if (_addressRepository == null)
-                {
-                    _addressRepository = AutoDriveIoc.IocContainer.Resolve<IMongoRepository<Address>>();
-                    _addressRepository.CollectionName = "Addresses";
-                }
-                return _addressRepository;
             }
         }
         public IMongoRepository<Booking> GetBookingRepository

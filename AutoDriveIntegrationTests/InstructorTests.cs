@@ -15,7 +15,7 @@ namespace AutoDriveIntegrationTests
     public class InstructorTests
     {
         private HttpResponseMessage _response;
-        private const string ServiceBaseURL = "http://testing/api/";
+        private const string ServiceBaseURL = "http://autodrive/api/";
         private HttpClient client;
         private string token;
         [OneTimeSetUp]

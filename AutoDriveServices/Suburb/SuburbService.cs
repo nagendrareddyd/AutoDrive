@@ -88,7 +88,7 @@ namespace AutoDriveServices.Suburb
         private bool Update(Model.Suburb suburb)
         {
             var builder = Builders<Model.Suburb>.Filter;
-            var filter = builder.Eq(x => x.Id, suburb.Id);
+            var filter = builder.Eq(x => x.SuburbName, suburb.SuburbName);
             var updatebuilder = Builders<Model.Suburb>.Update;
             var updates = updatebuilder
                 .Set(t => t.SuburbName, suburb.SuburbName)

@@ -43,6 +43,18 @@ namespace AutoDriveServices.Instructor
             }
             return null;
         }
+        public string GetInstructorCode()
+        {
+            var instructors = _unitOfWork.GetInstructorRepository.FindAll();
+            int code = 0;
+            if (instructors.Any())
+            {
+                 code = instructors.Count() ;
+            }
+            code += 1;
+            string result = code.ToString().PadLeft(5, '0');
+            return result;
+        }
 
         public InstructorEntity GetInstructor(string id)
         {
@@ -77,13 +89,7 @@ namespace AutoDriveServices.Instructor
                     _instructor.Name = instructor.Name;
                     _instructor.Gender = instructor.Gender;
                     _instructor.Email = instructor.Email;
-                    _instructor.Address = new Model.Address
-                    {
-                        City = instructor.Address.City,
-                        PostalCode = instructor.Address.PostalCode,
-                         State = instructor.Address.State,
-                         Street = instructor.Address.Street
-                    };          
+                    _instructor.Address = instructor.Address;                       
                     _instructor.Home = instructor.Home;
                     _instructor.Status = instructor.Status;
                     _instructor.Suburb = new Model.Suburb()
@@ -120,19 +126,13 @@ namespace AutoDriveServices.Instructor
                     InstructorCode = instructor.InstructorCode,
                     Mobile = instructor.Mobile,
                     Name = instructor.Name,
-                    Status = instructor.Status                    
+                    Status = instructor.Status,
+                    Address =instructor.Address          
                 };
                 _instructor.Suburb = new Model.Suburb()
                 {
                     SuburbName = instructor.Suburb.SuburbName,
                     PostalCode = instructor.Suburb.PostalCode
-                };
-                _instructor.Address = new Model.Address()
-                {
-                    City = instructor.Address.City,
-                    PostalCode = instructor.Address.PostalCode,
-                    State = instructor.Address.State,
-                    Street = instructor.Address.Street
                 };
                 var areaslist = new List<Model.Area>();
                 foreach (var item in instructor.Areas)
