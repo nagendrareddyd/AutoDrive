@@ -7,12 +7,16 @@ namespace AutoDriveDataModel.Models
     {
         [BsonElement("InstructorCode")]
         public string InstructorCode { get; set; }
-        [BsonElement("Name")]
-        public string Name { get; set; }
+        [BsonElement("First Name")]
+        public string FirstName { get; set; }
+        [BsonElement("Last Name")]
+        public string LastName { get; set; }
         [BsonElement("Gender")]
         public string Gender { get; set; }
         [BsonElement("Email")]
         public string Email { get; set; }
+        [BsonElement("DOB")]
+        public string DOB { get; set; }
         [BsonElement("Mobile")]
         public string Mobile { get; set; }
         [BsonElement("Home")]

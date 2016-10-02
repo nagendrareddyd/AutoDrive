@@ -20,7 +20,6 @@ namespace AutoDriveAPI.Controllers
         {
             AreaServices = areaService;
         }
-        [HttpGet]
         // GET: api/Area
         public HttpResponseMessage Get()
         {

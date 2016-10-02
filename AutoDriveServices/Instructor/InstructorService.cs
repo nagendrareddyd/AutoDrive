@@ -86,7 +86,8 @@ namespace AutoDriveServices.Instructor
                 if (_instructor != null)
                 {
                     _instructor.InstructorCode = instructor.InstructorCode;
-                    _instructor.Name = instructor.Name;
+                    _instructor.FirstName = instructor.FirstName;
+                    _instructor.LastName = instructor.LastName;
                     _instructor.Gender = instructor.Gender;
                     _instructor.Email = instructor.Email;
                     _instructor.Address = instructor.Address;                       
@@ -123,12 +124,14 @@ namespace AutoDriveServices.Instructor
                      Email = instructor.Email,
                     Gender = instructor.Gender,
                     Home = instructor.Home,
-                    InstructorCode = instructor.InstructorCode,
+                   InstructorCode = instructor.InstructorCode,
                     Mobile = instructor.Mobile,
-                    Name = instructor.Name,
+                    FirstName = instructor.FirstName,
+                    LastName = instructor.LastName,
                     Status = instructor.Status,
                     Address =instructor.Address          
                 };
+             //   instructor.InstructorCode = GetInstructorCode();
                 _instructor.Suburb = new Model.Suburb()
                 {
                     SuburbName = instructor.Suburb.SuburbName,
@@ -160,7 +163,9 @@ namespace AutoDriveServices.Instructor
             var updatebuilder = Builders<Model.Instructor>.Update;
             var updates = updatebuilder
                 .Set(t => t.InstructorCode, instructor.InstructorCode)
-                .Set(t => t.Name, instructor.Name)
+                .Set(t => t.FirstName, instructor.FirstName)
+                .Set(t => t.LastName, instructor.LastName)
+                .Set(t=> t.DOB,instructor.DOB)
                 .Set(t => t.Address, instructor.Address)
                 .Set(t => t.Areas, instructor.Areas)
                 .Set(t => t.Email, instructor.Email)

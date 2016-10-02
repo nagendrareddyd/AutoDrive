@@ -1,9 +1,4 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoDriveDataModel.Models
 {
@@ -11,8 +6,10 @@ namespace AutoDriveDataModel.Models
     {
         [BsonElement("StudentCode")]
         public string StudentCode { get; set; }
-        [BsonElement("FullName")]
-        public string FullName { get; set; }
+        [BsonElement("FirstName")]
+        public string FirstName { get; set; }
+        [BsonElement("LastName")]
+        public string LastName { get; set; }
         [BsonElement("Email")]
         public string Email { get; set; }
         [BsonElement("Gender")]

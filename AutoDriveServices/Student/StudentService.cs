@@ -61,7 +61,8 @@ namespace AutoDriveServices.Student
                 if (_student != null)
                 {
                     _student.StudentCode = student.StudentCode;
-                    _student.FullName = student.FullName;
+                    _student.FirstName = student.FirstName;
+                    _student.LastName = student.LastName;
                     _student.DOB = student.DOB;
                     _student.Email = student.Email;
                     _student.Gender = student.Gender;
@@ -93,10 +94,19 @@ namespace AutoDriveServices.Student
         {
             try
             {
+                var students = _unitOfWork.GetStudentRepository.FindAll();
+                int code = 0;
+                if (students.Any())
+                {
+                    code = students.Count();
+                }
+                code += 1;
+                string result = code.ToString().PadLeft(5, '0');
                 var _student = new Model.Student()
                 {
-                    StudentCode = student.StudentCode,
-                    FullName = student.FullName,
+                    StudentCode = result,
+                    FirstName = student.FirstName,
+                    LastName = student.LastName,
                     DOB = student.DOB,
                     Email = student.Email,
                     Gender = student.Gender,
@@ -146,10 +156,11 @@ namespace AutoDriveServices.Student
             var updatebuilder = Builders<Model.Student>.Update;
             var updates = updatebuilder
                 .Set(t => t.StudentCode, student.StudentCode)
-                .Set(t => t.FullName, student.FullName)
+                .Set(t => t.FirstName, student.FirstName)
+                .Set(t => t.LastName, student.LastName)
                 .Set(t => t.DOB, student.DOB)
                 .Set(t => t.Email, student.Email)
-                .Set(t => t.Gender, student.FullName)
+                .Set(t => t.Gender, student.Gender)
                 .Set(t => t.Instructor, student.Instructor)
                 .Set(t => t.LicenceCountry, student.LicenceCountry)
                 .Set(t => t.LicenceExpireOn, student.LicenceExpireOn)

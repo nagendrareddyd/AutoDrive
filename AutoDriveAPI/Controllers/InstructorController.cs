@@ -17,7 +17,6 @@ namespace AutoDriveAPI.Controllers
             InstructorServices = instructorService;
         }
         // GET: api/Instructor
-        [HttpGet]
         public HttpResponseMessage Get()
         {
             var result = InstructorServices.GetAllInstructors();
@@ -25,12 +24,12 @@ namespace AutoDriveAPI.Controllers
                 return Request.CreateResponse(result);
             throw new ApiDataException(9011, Constants.ErrorCode9011, HttpStatusCode.NotFound);
         }
-        [HttpGet]
         public HttpResponseMessage InstructorCode()
         {
             var result = InstructorServices.GetInstructorCode();
-            return Request.CreateResponse(result);            
+            return Request.CreateResponse(result);
         }
+        
         // GET: api/Instructor/5
         public HttpResponseMessage Get(string id)
         {
@@ -82,6 +81,8 @@ namespace AutoDriveAPI.Controllers
             }
             throw new ApiDataException(8001, Constants.ErrorCode8001, HttpStatusCode.InternalServerError);
         }
+
+      
 
         // DELETE: api/Instructor/5
         public HttpResponseMessage Delete(string id)

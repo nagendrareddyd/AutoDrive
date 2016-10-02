@@ -82,8 +82,9 @@ namespace AutoDriveIntegrationTests
                 Gender="Male",
                 Home = "",
                 Mobile="0455522425",
-                InstructorCode="INS102",
-                Name="Ravi Kumar",
+                InstructorCode="INS1020",
+                FirstName="Ravi Kumar",
+                LastName="Kammari",
                 Status="Active",
                 Suburb = new SuburbEntity()
                 {
