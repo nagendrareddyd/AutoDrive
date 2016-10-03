@@ -43,19 +43,7 @@ namespace AutoDriveServices.Instructor
             }
             return null;
         }
-        public string GetInstructorCode()
-        {
-            var instructors = _unitOfWork.GetInstructorRepository.FindAll();
-            int code = 0;
-            if (instructors.Any())
-            {
-                 code = instructors.Count() ;
-            }
-            code += 1;
-            string result = code.ToString().PadLeft(5, '0');
-            return result;
-        }
-
+   
         public InstructorEntity GetInstructor(string id)
         {
             var instructor = _unitOfWork.GetInstructorRepository.GetById(id);
@@ -119,12 +107,20 @@ namespace AutoDriveServices.Instructor
         {
             try
             {
+                var instructors = _unitOfWork.GetInstructorRepository.FindAll();
+                int code = 0;
+                if (instructors.Any())
+                {
+                    code = instructors.Count();
+                }
+                code += 1;
+                string result = "Instructor" + code.ToString().PadLeft(5, '0');
                 var _instructor = new Model.Instructor()
                 {
                      Email = instructor.Email,
                     Gender = instructor.Gender,
                     Home = instructor.Home,
-                   InstructorCode = instructor.InstructorCode,
+                   InstructorCode = result,
                     Mobile = instructor.Mobile,
                     FirstName = instructor.FirstName,
                     LastName = instructor.LastName,

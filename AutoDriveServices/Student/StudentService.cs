@@ -101,7 +101,7 @@ namespace AutoDriveServices.Student
                     code = students.Count();
                 }
                 code += 1;
-                string result = code.ToString().PadLeft(5, '0');
+                string result = "Student" + code.ToString().PadLeft(5, '0');
                 var _student = new Model.Student()
                 {
                     StudentCode = result,
