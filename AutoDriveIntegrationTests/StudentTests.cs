@@ -77,7 +77,7 @@ namespace AutoDriveIntegrationTests
             {
                 DOB = "18/07/1983",
                 Email = "ravi@gmail.com",
-                FullName = "S_ravikumar",
+                FirstName = "S_ravikumar",
                 Gender = "Male",
                 Instructor = new StudentInstructor
                 {
@@ -112,7 +112,7 @@ namespace AutoDriveIntegrationTests
                 Id= "57946b9a3ee6515e7c077c9a",
                 DOB = "18/07/1983",
                 Email = "ravi@gmail.com",
-                FullName = "S_ravikumar",
+                FirstName = "S_ravikumar",
                 Gender = "Male",
                 Instructor = new StudentInstructor
                 {
@@ -149,7 +149,7 @@ namespace AutoDriveIntegrationTests
                 Id = "57946b9a3ee6515e7c077c9a",
                 DOB = "18/07/1983",
                 Email = "ravi@gmail.com.au",
-                FullName = "S_ravikumar",
+                FirstName = "S_ravikumar",
                 Gender = "Male",
                 Instructor = new StudentInstructor
                 {
@@ -183,7 +183,7 @@ namespace AutoDriveIntegrationTests
                 Id = "57946b9a3ee6515e7c077",
                 DOB = "18/07/1983",
                 Email = "ravi@gmail.com",
-                FullName = "S_ravikumar",
+                FirstName = "S_ravikumar",
                 Gender = "Male",
                 Instructor = new StudentInstructor
                 {

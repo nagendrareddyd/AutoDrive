@@ -81,6 +81,7 @@ namespace AutoDriveServices.Instructor
                     _instructor.Address = instructor.Address;                       
                     _instructor.Home = instructor.Home;
                     _instructor.Status = instructor.Status;
+                    _instructor.DOB = instructor.DOB;
                     _instructor.Suburb = new Model.Suburb()
                     {
                         SuburbName = instructor.Suburb.SuburbName,
@@ -125,7 +126,8 @@ namespace AutoDriveServices.Instructor
                     FirstName = instructor.FirstName,
                     LastName = instructor.LastName,
                     Status = instructor.Status,
-                    Address =instructor.Address          
+                    Address =instructor.Address,
+                    DOB = instructor.DOB 
                 };
              //   instructor.InstructorCode = GetInstructorCode();
                 _instructor.Suburb = new Model.Suburb()

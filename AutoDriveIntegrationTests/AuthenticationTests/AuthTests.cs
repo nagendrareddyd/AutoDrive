@@ -14,7 +14,7 @@ namespace AutoDriveIntegrationTests.AuthenticationTests
 	public class AuthTests
 	{
 		private HttpResponseMessage _response;
-		private const string ServiceBaseURL = "http://testing/";
+		private const string ServiceBaseURL = "http://Autodrive/api/";
 		private HttpClient client;
 
 		[OneTimeSetUp]
@@ -38,18 +38,18 @@ namespace AutoDriveIntegrationTests.AuthenticationTests
 		{
             var parameters = new FormUrlEncodedContent(new[] {
                                     new KeyValuePair<string, string>("grant_type", "password"),
-                                    new KeyValuePair<string, string>("userName", "nage124@here.com"),
+                                    new KeyValuePair<string, string>("userName", "nage224@here.com"),
                                     new KeyValuePair<string, string>("password", "Nagendra~1")                                    
                                     });
             _response = client.PostAsync("token", parameters).Result;			
 			Assert.AreEqual(_response.StatusCode, HttpStatusCode.OK);			
 		}
 
-        //[Test]
+        [Test]
         public void RegisterUserTest()
         {
             var parameters = new FormUrlEncodedContent(new[] {
-                                    new KeyValuePair<string, string>("userName", "nage124@here.com"),
+                                    new KeyValuePair<string, string>("userName", "nage224@here.com"),
                                     new KeyValuePair<string, string>("password", "Nagendra~1"),
                                     new KeyValuePair<string, string>("confirmPassword", "Nagendra~1")
                                     });

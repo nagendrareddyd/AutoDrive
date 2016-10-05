@@ -124,7 +124,7 @@ namespace AutoDriveIntegrationTests
                 Home = "",
                 Mobile = "0455522425",
                 InstructorCode = "INS102",
-                Name = "Ravi Kumar",
+                FirstName = "Ravi Kumar",
                 Status = "Active",
                 Suburb = new SuburbEntity()
                 {
@@ -166,7 +166,7 @@ namespace AutoDriveIntegrationTests
                 Home = "",
                 Mobile = "0455522425",
                 InstructorCode = "INS102",
-                Name = "Ravi Kumar",
+                FirstName = "Ravi Kumar",
                 Status = "Active",
                 Suburb = new SuburbEntity()
                 {
@@ -205,7 +205,7 @@ namespace AutoDriveIntegrationTests
                 Home = "",
                 Mobile = "0455522425",
                 InstructorCode = "INS102",
-                Name = "Ravi Kumar",
+                FirstName = "Ravi Kumar",
                 Status = "Active",
                 Suburb = new SuburbEntity()
                 {

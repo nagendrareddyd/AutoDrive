@@ -7,8 +7,7 @@ namespace AutoDriveServices.Instructor
     {
         IEnumerable<InstructorEntity> GetAllInstructors();
         InstructorEntity GetInstructor(string id);
-        InstructorEntity GetInstructorByCode(string code);
-        string GetInstructorCode();
+        InstructorEntity GetInstructorByCode(string code);        
         bool Update(InstructorEntity instructor);
         bool Save(InstructorEntity instructor);
         bool Delete(string id);
