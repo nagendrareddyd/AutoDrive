@@ -14,7 +14,7 @@ namespace AutoDriveIntegrationTests.AuthenticationTests
 	public class AuthTests
 	{
 		private HttpResponseMessage _response;
-		private const string ServiceBaseURL = "http://Autodrive/api/";
+		private const string ServiceBaseURL = "http://Autodrive/";
 		private HttpClient client;
 
 		[OneTimeSetUp]

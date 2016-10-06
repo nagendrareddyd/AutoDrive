@@ -55,5 +55,10 @@ namespace AutoDriveAPI.Providers
             context.Validated(ticket);
 
         }
-	}
+
+        public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
+        {
+            context.Validated();
+        }
+    }
 }
