@@ -25,7 +25,7 @@ namespace AutoDriveServices.IoCRegistry
             IocContainer.container.Register(Component.For<IAreaService>().ImplementedBy<AreaService>());
             IocContainer.container.Register(Component.For<IInstructorService>().ImplementedBy<InstructorService>());
             IocContainer.container.Register(Component.For<IStudentService>().ImplementedBy<StudentService>());
-            IocContainer.container.Register(Component.For<ISuburbService>().ImplementedBy<ISuburbService>());
+            IocContainer.container.Register(Component.For<ISuburbService>().ImplementedBy<SuburbService>());
             IocContainer.container.Register(Component.For<IBookingService>().ImplementedBy<BookingService>());
 
         }

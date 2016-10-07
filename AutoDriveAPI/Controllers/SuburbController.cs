@@ -10,15 +10,15 @@ using System.Collections.Generic;
 namespace AutoDriveAPI.Controllers
 {
     public class SuburbController : ApiController
-    {
-        
+    {        
         private ISuburbService SuburbService { get; set; }
        
         public SuburbController(ISuburbService suburbservice)
         {
             SuburbService = suburbservice;            
         }
-		// GET: Suburb      
+		// GET: Suburb 
+        [HttpGet]     
 		public HttpResponseMessage Get(string contains)
 		{
 			var result = SuburbService.GetMatchedSuburbs(contains);
@@ -26,5 +26,10 @@ namespace AutoDriveAPI.Controllers
 				return Request.CreateResponse(result);
 			throw new ApiDataException(9011, Constants.ErrorCode9011, HttpStatusCode.NotFound);
 		}
-	}
+
+        public HttpResponseMessage Get()
+        {
+            throw new ApiDataException(9011, Constants.ErrorCode9011, HttpStatusCode.NotFound);
+        }
+    }
 }
