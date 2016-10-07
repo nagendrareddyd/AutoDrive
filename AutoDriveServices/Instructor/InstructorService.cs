@@ -84,8 +84,8 @@ namespace AutoDriveServices.Instructor
                     _instructor.DOB = instructor.DOB;
                     _instructor.Suburb = new Model.Suburb()
                     {
-                        SuburbName = instructor.Suburb.SuburbName,
-                        PostalCode = instructor.Suburb.PostalCode
+                        SuburbName = instructor.Suburb.Suburb,
+                        PostCode = instructor.Suburb.PostCode
                     };
                     var areaslist = new List<Model.Area>();
                     foreach (var item in instructor.Areas)
@@ -132,8 +132,8 @@ namespace AutoDriveServices.Instructor
              //   instructor.InstructorCode = GetInstructorCode();
                 _instructor.Suburb = new Model.Suburb()
                 {
-                    SuburbName = instructor.Suburb.SuburbName,
-                    PostalCode = instructor.Suburb.PostalCode
+                    SuburbName = instructor.Suburb.Suburb,
+                    PostCode = instructor.Suburb.PostCode
                 };
                 var areaslist = new List<Model.Area>();
                 foreach (var item in instructor.Areas)

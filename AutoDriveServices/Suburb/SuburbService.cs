@@ -58,8 +58,8 @@ namespace AutoDriveServices.Suburb
             {
                 var _suburb = new Model.Suburb()
                 {
-                    PostalCode = suburb.PostalCode,
-                    SuburbName = suburb.SuburbName
+                    PostCode = suburb.PostCode,
+                    SuburbName = suburb.Suburb
                 };
                 _unitOfWork.GetSuburbRepository.Insert(_suburb);
                 return true;
@@ -87,11 +87,11 @@ namespace AutoDriveServices.Suburb
         }
 		public IEnumerable<SuburbEntity> GetMatchedSuburbs(string contains)
 		{
-			var st = "/.* "+ contains + ".*/ i";
+			var st = ".*"+ contains + ".*";
 			var regex = new BsonRegularExpression(st);
-			var builder = Builders<Model.Suburb>.Filter;
-			var filter = builder.Regex(x => x.SuburbName, regex) & builder.Size(x => x.SuburbName, 10);
-			var suburbs = _unitOfWork.GetSuburbRepository.GetByFilter(filter);
+			var builder = Builders<Model.Suburb>.Filter;            
+            var filter = builder.Regex("Display",new BsonRegularExpression(st));            
+            var suburbs = _unitOfWork.GetSuburbRepository.GetByFilter(filter);
 			if (suburbs.Any())
 			{
 				return AutoMapperSetup.AutoMap.Map<List<Model.Suburb>, List<SuburbEntity>>(suburbs.ToList());
@@ -105,7 +105,7 @@ namespace AutoDriveServices.Suburb
             var updatebuilder = Builders<Model.Suburb>.Update;
             var updates = updatebuilder
                 .Set(t => t.SuburbName, suburb.SuburbName)
-                .Set(t => t.PostalCode, suburb.PostalCode);
+                .Set(t => t.PostCode, suburb.PostCode);
             return _unitOfWork.GetSuburbRepository.Update(filter, updates);
         }
     }

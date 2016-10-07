@@ -18,10 +18,10 @@ namespace AutoDriveAPI.Controllers
             SuburbService = suburbservice;            
         }
 		// GET: Suburb 
-        [HttpGet]     
-		public HttpResponseMessage Get(string contains)
+        
+		public HttpResponseMessage Get(string id)
 		{
-			var result = SuburbService.GetMatchedSuburbs(contains);
+			var result = SuburbService.GetMatchedSuburbs(id);
 			if (result != null)
 				return Request.CreateResponse(result);
 			throw new ApiDataException(9011, Constants.ErrorCode9011, HttpStatusCode.NotFound);

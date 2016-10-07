@@ -79,8 +79,8 @@ namespace AutoDriveServices.Student
                     _student.PickUpLocation = student.PickUpLocation;
                     _student.Suburbs = new Model.Suburb()
                     {
-                        PostalCode = student.Suburbs.PostalCode,
-                        SuburbName = student.Suburbs.SuburbName
+                        PostCode = student.Suburbs.PostCode,
+                        SuburbName = student.Suburbs.Suburb
                     };
                     _student.Status = student.Status;
                     return Update(_student);
@@ -122,8 +122,8 @@ namespace AutoDriveServices.Student
                     PickUpLocation = student.PickUpLocation,
                     Suburbs = new Model.Suburb()
                     {
-                        PostalCode = student.Suburbs.PostalCode,
-                        SuburbName = student.Suburbs.SuburbName
+                        PostCode = student.Suburbs.PostCode,
+                        SuburbName = student.Suburbs.Suburb
                     },
                     Status = student.Status
                 };

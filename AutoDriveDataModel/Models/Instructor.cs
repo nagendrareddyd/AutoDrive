@@ -31,11 +31,13 @@ namespace AutoDriveDataModel.Models
         public string Status { get; set; }
     }
 
-    public class Suburb
+    public class Suburb : BaseModel
     {
-        [BsonElement("SuburbName")]
+        [BsonElement("Suburb")]
         public string SuburbName { get; set; }
-        [BsonElement("PostalCode")]
-        public string PostalCode { get; set; }        
+        [BsonElement("PostCode")]
+        public string PostCode { get; set; }
+        [BsonElement("Display")]
+        public string Display { get; set; }
     }   
 }
