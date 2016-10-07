@@ -10,5 +10,7 @@ namespace AutoDriveServices.Suburb
         bool Update(SuburbEntity suburb);
         bool Save(SuburbEntity suburb);
         bool Delete(string id);
-    }
+		IEnumerable<SuburbEntity> GetMatchedSuburbs(string contains);
+
+	}
 }

@@ -6,6 +6,7 @@ using Model = AutoDriveDataModel.Models;
 using System.Linq;
 using NLog;
 using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace AutoDriveServices.Suburb
 {
@@ -84,8 +85,20 @@ namespace AutoDriveServices.Suburb
             logger.Log(LogLevel.Info, "No Student found");
             return false;
         }
-
-        private bool Update(Model.Suburb suburb)
+		public IEnumerable<SuburbEntity> GetMatchedSuburbs(string contains)
+		{
+			var st = "/.* "+ contains + ".*/ i";
+			var regex = new BsonRegularExpression(st);
+			var builder = Builders<Model.Suburb>.Filter;
+			var filter = builder.Regex(x => x.SuburbName, regex) & builder.Size(x => x.SuburbName, 10);
+			var suburbs = _unitOfWork.GetSuburbRepository.GetByFilter(filter);
+			if (suburbs.Any())
+			{
+				return AutoMapperSetup.AutoMap.Map<List<Model.Suburb>, List<SuburbEntity>>(suburbs.ToList());
+			}
+			return null;
+		}
+		private bool Update(Model.Suburb suburb)
         {
             var builder = Builders<Model.Suburb>.Filter;
             var filter = builder.Eq(x => x.SuburbName, suburb.SuburbName);

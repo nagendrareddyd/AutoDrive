@@ -1,5 +1,11 @@
-﻿using AutoDriveServices.Suburb;
+﻿using AutoDriveAPI.CustomExceptions;
+using AutoDriveAPI.Util;
+using AutoDriveServices.Suburb;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
+using AutoDriveEntities;
+using System.Collections.Generic;
 
 namespace AutoDriveAPI.Controllers
 {
@@ -12,7 +18,13 @@ namespace AutoDriveAPI.Controllers
         {
             SuburbService = suburbservice;            
         }
-        // GET: Suburb      
-     
-    }
+		// GET: Suburb      
+		public HttpResponseMessage Get(string contains)
+		{
+			var result = SuburbService.GetMatchedSuburbs(contains);
+			if (result != null)
+				return Request.CreateResponse(result);
+			throw new ApiDataException(9011, Constants.ErrorCode9011, HttpStatusCode.NotFound);
+		}
+	}
 }
