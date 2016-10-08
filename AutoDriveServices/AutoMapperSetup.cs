@@ -20,7 +20,13 @@ namespace AutoDriveServices
                 cfg.CreateMap<Model.Instructor, InstructorEntity>();
                 cfg.CreateMap<Model.Student, StudentEntity>();
                 cfg.CreateMap<Model.StudentInstructor, StudentInstructor>();
-                cfg.CreateMap<Model.Booking, BookingEntity>();
+                cfg.CreateMap<Model.Booking, BookingEntity>()
+                .ForMember(dest => dest.Title,
+               opts => opts.MapFrom(src => src.Student.StudentName))
+               .ForMember(dest => dest.StartsAt,
+               opts => opts.MapFrom(src => src.StartDateTime))
+               .ForMember(dest => dest.EndsAt,
+               opts => opts.MapFrom(src => src.EndDateTime));
                 cfg.CreateMap<Model.BookingInstructor, BookingInstructor>();
                 cfg.CreateMap<Model.BookingStudent, BookingStudent>();
                 cfg.CreateMap<Model.ApplicationUser, UserEntity>();

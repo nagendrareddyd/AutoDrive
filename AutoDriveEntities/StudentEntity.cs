@@ -18,7 +18,7 @@ namespace AutoDriveEntities
         public string LicenceCountry { get; set; }
         public string LicenceExpireOn { get; set; }
         public StudentInstructor Instructor { get; set; }
-        public string Status { get; set; }
+        public string Status { get; set; }                
     }
     public class StudentInstructor
     {
