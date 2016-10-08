@@ -2,6 +2,8 @@
 using AutoDriveAPI.Util;
 using AutoDriveEntities;
 using AutoDriveServices.Student;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -41,6 +43,7 @@ namespace AutoDriveAPI.Controllers
         }
 
         [HttpGet]
+        [Route("api/GetStudents/{code}")]
         public HttpResponseMessage GetByCode(string code)
         {
             StudentEntity student = null;
@@ -50,6 +53,20 @@ namespace AutoDriveAPI.Controllers
             }
             if (student != null)
                 return Request.CreateResponse(student);
+            throw new ApiDataException(9022, Constants.ErrorCode9022, HttpStatusCode.NotFound);
+        }
+
+        [HttpGet]
+        [Route("api/GetStudentsForInstructor/{insCode}")]
+        public HttpResponseMessage GetByInstructorCode(string insCode)
+        {
+            IEnumerable<StudentEntity> students = null;
+            if (!string.IsNullOrEmpty(insCode))
+            {
+                students = StudentServices.GetStudentsByINSCode(insCode);
+            }
+            if (students !=null && students.Any())
+                return Request.CreateResponse(students);
             throw new ApiDataException(9022, Constants.ErrorCode9022, HttpStatusCode.NotFound);
         }
 

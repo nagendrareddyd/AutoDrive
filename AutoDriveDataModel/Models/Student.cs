@@ -39,5 +39,6 @@ namespace AutoDriveDataModel.Models
     public class StudentInstructor : BaseModel
     {
         public string InstructorName { get; set; }
+        public string InstructorCode { get; set; }
     }
 }

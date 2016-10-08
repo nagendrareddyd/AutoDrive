@@ -11,5 +11,6 @@ namespace AutoDriveServices.Student
         bool Update(StudentEntity student);
         bool Save(StudentEntity sudent);
         bool Delete(string id);
+        IEnumerable<StudentEntity> GetStudentsByINSCode(string code);
     }
 }

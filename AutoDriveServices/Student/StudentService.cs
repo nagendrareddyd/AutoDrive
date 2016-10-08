@@ -53,6 +53,18 @@ namespace AutoDriveServices.Student
             return null;
         }
 
+        public IEnumerable<StudentEntity> GetStudentsByINSCode(string code)
+        {
+            var builder = Builders<Model.Student>.Filter;
+            var filter = builder.Eq(x => x.Instructor.InstructorCode, code);
+            var student = _unitOfWork.GetStudentRepository.GetByFilter(filter);
+            if (student.Any())
+            {
+                return AutoMapperSetup.AutoMap.Map<List<Model.Student>, List<StudentEntity>>(student.ToList());
+            }
+            return null;
+        }
+
         public bool Update(StudentEntity student)
         {
             if (!string.IsNullOrEmpty(student.Id))
@@ -101,7 +113,7 @@ namespace AutoDriveServices.Student
                     code = students.Count();
                 }
                 code += 1;
-                string result = "Student" + code.ToString().PadLeft(5, '0');
+                string result = "ST" + code.ToString().PadLeft(3, '0');
                 var _student = new Model.Student()
                 {
                     StudentCode = result,
@@ -112,7 +124,8 @@ namespace AutoDriveServices.Student
                     Gender = student.Gender,
                     Instructor = new Model.StudentInstructor()
                     {
-                        InstructorName = student.Instructor.InstructorName
+                        InstructorName = student.Instructor.InstructorName,
+                        InstructorCode = student.Instructor.InstructorCode
                     },
                     LicenceCountry = student.LicenceCountry,
                     LicenceExpireOn = student.LicenceExpireOn,
@@ -123,7 +136,7 @@ namespace AutoDriveServices.Student
                     Suburbs = new Model.Suburb()
                     {
                         PostCode = student.Suburbs.PostCode,
-                        SuburbName = student.Suburbs.Suburb
+                        Display = student.Suburbs.Display
                     },
                     Status = student.Status
                 };

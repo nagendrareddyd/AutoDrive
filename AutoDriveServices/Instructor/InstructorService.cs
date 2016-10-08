@@ -115,7 +115,7 @@ namespace AutoDriveServices.Instructor
                     code = instructors.Count();
                 }
                 code += 1;
-                string result = "Instructor" + code.ToString().PadLeft(5, '0');
+                string result = "INS" + code.ToString().PadLeft(3, '0');
                 var _instructor = new Model.Instructor()
                 {
                      Email = instructor.Email,

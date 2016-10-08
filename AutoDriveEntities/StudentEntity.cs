@@ -24,5 +24,6 @@ namespace AutoDriveEntities
     {
         public string Id { get; set; }
         public string InstructorName { get; set; }
+        public string InstructorCode { get; set; }
     }
 }
