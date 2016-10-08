@@ -15,5 +15,7 @@ namespace AutoDriveServices
 		ApplicationUserManager UserManager { get; set; }
 		Task<SignInStatus> PasswordSignIn(string userName, string password, bool isPersistent, bool shouldLockout);
         Task<IdentityResult> RegisterUser(UserEntity userModel);
-	}
+        UserEntity GetUserDetails(string email);
+
+    }
 }

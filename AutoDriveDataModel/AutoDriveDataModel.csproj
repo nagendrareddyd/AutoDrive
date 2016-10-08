@@ -83,6 +83,7 @@
     <Compile Include="Models\Instructor.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Interfaces\IMongoDataAccess.cs" />
     <Compile Include="Repository\Interfaces\IMongoRepository.cs" />

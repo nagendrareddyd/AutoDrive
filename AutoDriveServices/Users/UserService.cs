@@ -6,13 +6,14 @@ using AutoDriveServices.MongoIdentity;
 using AutoDriveServices.Util;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-
+using Model = AutoDriveDataModel.Models;
 namespace AutoDriveServices
 {
     public class UserService : IUserService
@@ -66,5 +67,18 @@ namespace AutoDriveServices
 
 			return result;
 		}
+
+        public UserEntity GetUserDetails(string email)
+        {
+            var builder = Builders<Model.ApplicationUser>.Filter;
+            var filter = builder.Eq(x=>x.UserName, email);
+            var user = _unitOfWork.GetUserRepository.GetByFilter(filter);
+            
+            if (user.Any())
+            {
+                return AutoMapperSetup.AutoMap.Map<ApplicationUser, UserEntity>(user.FirstOrDefault());
+            }
+            return null;
+        }
 	}
 }

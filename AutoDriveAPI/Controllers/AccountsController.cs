@@ -1,4 +1,5 @@
-﻿using AutoDriveEntities;
+﻿using AutoDriveAPI.CustomExceptions;
+using AutoDriveEntities;
 using AutoDriveServices;
 using AutoDriveServices.MongoIdentity;
 using AutoDriveServices.Product;
@@ -61,7 +62,20 @@ namespace AutoDriveAPI.Controllers
 			return Ok();
 		}
 
-		private IHttpActionResult GetErrorResult(IdentityResult result)
+        [AllowAnonymous]
+        [Route("UserDetails")]
+        [HttpGet]
+        public HttpResponseMessage Get(string id)
+        {           
+            UserServices.UserManager = UserManager;
+            var result = UserServices.GetUserDetails(id);
+
+            if (result != null)
+                return Request.CreateResponse(result);
+            throw new ApiDataException(9011, "User Not Found", HttpStatusCode.NotFound);
+        }
+
+        private IHttpActionResult GetErrorResult(IdentityResult result)
 		{
 			if (result == null)
 			{

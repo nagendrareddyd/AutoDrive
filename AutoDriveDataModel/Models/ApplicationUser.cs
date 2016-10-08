@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using AspNet.Identity.MongoDB;
 using Microsoft.AspNet.Identity;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace AutoDriveDataModel.Models
 {
@@ -14,5 +15,9 @@ namespace AutoDriveDataModel.Models
             // Add custom user claims here
             return userIdentity;
         }
+        [BsonElement("Role")]
+        public string Role { get; set; }
+        [BsonElement("InstructorCode")]
+        public string InstructorCode { get; set; }
     }
 }

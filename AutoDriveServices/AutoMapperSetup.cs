@@ -23,6 +23,7 @@ namespace AutoDriveServices
                 cfg.CreateMap<Model.Booking, BookingEntity>();
                 cfg.CreateMap<Model.BookingInstructor, BookingInstructor>();
                 cfg.CreateMap<Model.BookingStudent, BookingStudent>();
+                cfg.CreateMap<Model.ApplicationUser, UserEntity>();
             });
             AutoMap = config.CreateMapper();
         }

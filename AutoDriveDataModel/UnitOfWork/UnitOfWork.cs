@@ -9,6 +9,7 @@ namespace AutoDriveDataModel.UnitOfWork
     {
         private IMongoRepository<Product> _productRepository;
         private IMongoRepository<ApplicationUser> _userRepository;
+        private IMongoRepository<UserModel> _userModelRepository;
         private IMongoRepository<IdentityRole> _roleRepository;
         private IMongoRepository<Area> _areaRepository;
         private IMongoRepository<Instructor> _instructorRepository;
@@ -37,6 +38,18 @@ namespace AutoDriveDataModel.UnitOfWork
                     _userRepository.CollectionName = "users";
                 }
                 return _userRepository;
+            }
+        }
+        public IMongoRepository<UserModel> GetUserModelRepository
+        {
+            get
+            {
+                if (_userModelRepository == null)
+                {
+                    _userModelRepository = AutoDriveIoc.IocContainer.Resolve<IMongoRepository<UserModel>>();
+                    _userModelRepository.CollectionName = "users";
+                }
+                return _userModelRepository;
             }
         }
         public IMongoRepository<IdentityRole> GetRoleRepository
