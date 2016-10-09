@@ -22,8 +22,8 @@ namespace AutoDriveEntities
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }
         public string Title { get; set; }
-        public string StartsAt { get; set; }
-        public string EndsAt { get; set; }
+        public DateTime StartsAt { get; set; }
+        public DateTime EndsAt { get; set; }
     }
     public class BookingInstructor 
     {
