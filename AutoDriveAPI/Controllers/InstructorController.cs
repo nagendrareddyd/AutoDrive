@@ -2,6 +2,7 @@
 using AutoDriveAPI.Util;
 using AutoDriveEntities;
 using AutoDriveServices.Instructor;
+using Swashbuckle.Swagger.Annotations;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -26,6 +27,8 @@ namespace AutoDriveAPI.Controllers
         }
        
         // GET: api/Instructor/5
+        [Route("api/instructor/{id}")]
+        [SwaggerResponse(HttpStatusCode.OK, "Successful",typeof(InstructorEntity))]
         public HttpResponseMessage Get(string id)
         {
             InstructorEntity instructor = null;

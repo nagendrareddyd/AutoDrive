@@ -9,6 +9,10 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Description;
+using Swashbuckle.Swagger;
+using Swashbuckle.Swagger.Annotations;
+using System.Threading.Tasks;
 
 namespace AutoDriveAPI.Controllers
 {
@@ -20,7 +24,7 @@ namespace AutoDriveAPI.Controllers
         {
             AreaServices = areaService;
         }
-        // GET: api/Area
+        // GET: api/Area        
         public HttpResponseMessage Get()
         {
             var areas = AreaServices.GetAllAreas();
@@ -44,8 +48,9 @@ namespace AutoDriveAPI.Controllers
                 return Request.CreateResponse(area);
             throw new ApiDataException(9002, Constants.ErrorCode9002, HttpStatusCode.NotFound);            
         }
-        
-        [HttpGet]
+
+        [Route("getbycode"),HttpGet]
+        [SwaggerResponse(HttpStatusCode.OK, "Successful", typeof(AreaEntity))]
         public HttpResponseMessage GetByCode(string code)
         {
             AreaEntity area = null;
@@ -59,6 +64,8 @@ namespace AutoDriveAPI.Controllers
         }
         // POST: api/Area
         [HttpPost]
+        [Route("")]
+        [ResponseType(typeof(AreaEntity))]        
         public HttpResponseMessage Post([FromBody]AreaEntity value)
         {
             var area = AreaServices.GetAreaByCode(value.AreaCode);
@@ -72,7 +79,7 @@ namespace AutoDriveAPI.Controllers
             throw new ApiDataException(8001, Constants.ErrorCode8001, HttpStatusCode.InternalServerError);
         }
 
-        // PUT: api/Area/5
+        // PUT: api/Area/5                
         public HttpResponseMessage Put([FromBody]AreaEntity value)
         {
             var area = AreaServices.GetArea(value.Id);

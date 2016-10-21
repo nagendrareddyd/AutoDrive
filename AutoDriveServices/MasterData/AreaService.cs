@@ -5,6 +5,7 @@ using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Model = AutoDriveDataModel.Models;
 
 namespace AutoDriveServices.MasterData
@@ -49,10 +50,10 @@ namespace AutoDriveServices.MasterData
         {
             var builder = Builders<Model.Area>.Filter;
             var filter = builder.Eq(x => x.AreaCode, code);
-            var area = _unitOfWork.GetAreaRepository.GetByFilter(filter).FirstOrDefault();
-            if (area != null)
+            var result = _unitOfWork.GetAreaRepository.GetByFilter(filter).FirstOrDefault();
+            if (result != null)
             {
-                return AutoMapperSetup.AutoMap.Map<Model.Area, AreaEntity>(area);
+                return AutoMapperSetup.AutoMap.Map<Model.Area, AreaEntity>(result);
             }
             return null;
         }

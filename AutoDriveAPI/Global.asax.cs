@@ -24,6 +24,7 @@ namespace AutoDriveAPI
             /*ConfigureWindsor(GlobalConfiguration.Configuration);
             GlobalConfiguration.Configure(c => WebApiConfig.Register(c, _container));
             AutoMapperSetup.Init();*/
+            GlobalConfiguration.Configure(c => WebApiConfig.Register(c, _container));
         }
 
         public static void ConfigureWindsor(HttpConfiguration configuration)

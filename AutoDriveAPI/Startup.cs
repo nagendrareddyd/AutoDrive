@@ -28,7 +28,8 @@ namespace AutoDriveAPI
 			app.UseWebApi(config);
             ConfigureWindsor(config);
             WebApiConfig.Register(config, _container);
-            AutoMapperSetup.Init();            
+            AutoMapperSetup.Init();
+            SwaggerConfig.Register();            
         }
 
         private static void ConfigureWindsor(HttpConfiguration configuration)
