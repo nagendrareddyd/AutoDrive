@@ -3,6 +3,7 @@ using WebActivatorEx;
 using AutoDriveAPI;
 using Swashbuckle.Application;
 using System.Linq;
+using AutoDriveAPI.App_Start;
 //[assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
 namespace AutoDriveAPI
@@ -47,6 +48,9 @@ namespace AutoDriveAPI
                         //        vc.Version("v1", "Swashbuckle Dummy API V1");
                         //    });
 
+                        //Added custom header for authentication token
+                        c.OperationFilter<AuthorizationHeaderParameterOperationFilter>();
+
                         // You can use "BasicAuth", "ApiKey" or "OAuth2" options to describe security schemes for the API.
                         // See https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md for more details.
                         // NOTE: These only define the schemes and need to be coupled with a corresponding "security" property
@@ -57,7 +61,7 @@ namespace AutoDriveAPI
                         //c.BasicAuth("basic")
                         //    .Description("Basic HTTP Authentication");
                         //
-						// NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
+                        // NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
                         //c.ApiKey("apiKey")
                         //    .Description("API Key Authentication")
                         //    .Name("apiKey")

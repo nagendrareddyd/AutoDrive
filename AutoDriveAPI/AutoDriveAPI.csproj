@@ -213,6 +213,7 @@
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="Content\Postcodes.csv" />
+    <None Include="Properties\PublishProfiles\autodrive-api-uat - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\AutogearAPI-backstage - Web Deploy.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
@@ -223,6 +224,7 @@
   <ItemGroup>
     <Compile Include="ActionFilters\GlobalExceptionAttribute.cs" />
     <Compile Include="ActionFilters\LoggingFilterAttribute.cs" />
+    <Compile Include="App_Start\AuthorizationHeaderParameterOperationFilter.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountsController.cs" />

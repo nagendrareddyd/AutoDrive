@@ -13,8 +13,8 @@ namespace AutoDriveDataModel.Repository
     {
         public IMongoDatabase GetMongoDB()
         {
-            //var _client = new MongoClient(ConfigurationManager.AppSettings["MongoConnection"].ToString()); // "mongodb://localhost:27017");
-            var _username = ConfigurationManager.AppSettings["MongoDBUserName"].ToString();
+            var _client = new MongoClient(ConfigurationManager.AppSettings["MongoConnection"].ToString()); // "mongodb://localhost:27017");
+            /*var _username = ConfigurationManager.AppSettings["MongoDBUserName"].ToString();
             var _password = ConfigurationManager.AppSettings["MongoDBPassword"].ToString();
             var _host = ConfigurationManager.AppSettings["MongoDBHost"].ToString();
             var _dbname = ConfigurationManager.AppSettings["MongoDB"].ToString();
@@ -31,7 +31,7 @@ namespace AutoDriveDataModel.Repository
                 {
                     new MongoCredential("SCRAM-SHA-1", identity, evidence)
                 };
-            var _client = new MongoClient(settings);
+            var _client = new MongoClient(settings);*/
             var MongoDB = _client.GetDatabase(ConfigurationManager.AppSettings["MongoDB"].ToString());
             return MongoDB;
         }
